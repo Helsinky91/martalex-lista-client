@@ -1,8 +1,8 @@
-// import React from 'react'
+import React from 'react'
 // import {useState} from 'react';
 
 
-// function SearchRecipe(props) {
+function SearchRecipe(props) {
 
 //   const [searchItem, setSearchItem] = useState("")
 
@@ -12,11 +12,12 @@
 //       props.filterList(event.target.value)
 //   }
 
-//   return (
-//     <div>
-//       <input value={searchItem} type="text" onChange={handleChange} placeholder="Busca una receta"/>
-//     </div>
-//   )
-// }
+  return (
+    <div>
+        <button>Busca un Cosplay</button>
+{/* //       <input value={searchItem} type="text" onChange={handleChange} placeholder="Busca una receta"/> */}
+    </div>
+  )
+}
 
-// export default SearchRecipe
+export default SearchRecipe
