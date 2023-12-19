@@ -16,7 +16,7 @@ function CosplayDetails() {
     // };
 
     useEffect(() => {
-        getData();
+        getData()
     }, []);
     
     const getData = async () => {
@@ -25,7 +25,7 @@ function CosplayDetails() {
             // console.log("cosplayId", cosplayId)
             setDetails(response.data);
             // console.log("getData cosplayDetails", response.data)
-            
+
             // setIsFetching(false);
         } catch(err){
             console.log(err);
@@ -38,7 +38,7 @@ function CosplayDetails() {
             <img src={details.image} width="300" alt={details.name}/>
             <h5>{details.name}</h5>
             <p>{details.description}</p>
-            <p>{details.family}</p>
+            {/* <p>{details.family}</p> */}
         </div>
     )
 

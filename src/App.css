@@ -2,6 +2,52 @@
   text-align: center;
   min-height: 100vh
 }
+
+
+.navbar{
+  background-color: rgba(7, 7, 7, 0.700);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar > div {
+  margin-left: 10px;
+  margin-right: 10px
+}
+
+.nav-active button {
+  background-color: orange;
+  padding: 10px;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+}
+
+.nav-inactive button {
+  background-color: rgba(255, 166, 0, 0.661);
+  padding: 8px;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+
+}
+.nav-logout button {
+  background-color: rgba(255, 77, 0, 0.661);
+  padding: 8px;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+}
+
+
+
+.error-message {
+  color: rgba(255, 0, 43, 0.94);
+  font-weight: bold;
+  align-items: center;
+}
+
+.footer {
+  background-color: rgba(128, 128, 128, 0.404);
+}
 /* 
 .App-logo {
   height: 40vmin;
