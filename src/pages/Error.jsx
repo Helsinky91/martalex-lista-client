@@ -1,12 +1,13 @@
-import React from "react";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Error() {
+  return (
+    <div className="error-page">
+      <h1 >Nuestros desarrolladores cometieron un error, estamos trabjando en ello!</h1>
+      <Link to={"/"}>Home</Link>
+    </div>
+  )
+}
 
-    return (
-        <p>Oh no... an error ocurred</p>
-    )
-
-
-};
-
-export default Error;
+export default Error

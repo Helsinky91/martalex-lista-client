@@ -7,6 +7,7 @@ const signupService = (newUser) => {
 
 //for POST "auth/login"
 const loginService = (userCredentials) => {
+    console.log("Request URL:", `${process.env.REACT_APP_SERVER_URL}/auth/login`);
     return service.post('/auth/login', userCredentials)
 }
 

@@ -2,9 +2,10 @@
 import axios from "axios";
 
 const service = axios.create({
-    // baseURL: process.env.REACT_APP_SERVER_URL
-    baseURL: "https://viridian-leopard-fez.cyclic.app/api"
+  baseURL: process.env.REACT_APP_SERVER_URL,
+       
 });
+console.log("REACT_APP_SERVER_URL:", process.env.REACT_APP_SERVER_URL)
 
 service.interceptors.request.use((config) => {
     // Search the Token that is stored in local storage
