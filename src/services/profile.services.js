@@ -17,15 +17,10 @@ const getProfileService = (id) => {
     return service.get(`/profile/${id}/details`)
 }
 
-const getMyCosplayService = (id) => {
-    return service.get()
-}
 
 
 export {
     getMyProfileService,
     getProfilesListService,
     getProfileService,
-    getMyCosplayService
-
 }

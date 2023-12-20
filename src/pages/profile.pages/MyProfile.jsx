@@ -7,10 +7,10 @@ import { getMyCosplayService, getMyProfileService } from '../../services/profile
 
 function MyProfile() {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   //states
-  const [profileList, setProfileList] = useState([])
+  const [myProfile, setMyProfile] = useState([])
   const [myCosplay, setMyCosplay] = useState([])
 
   //for loading time
@@ -26,7 +26,7 @@ function MyProfile() {
     try {
       //call my profile info 
       const response = await getMyProfileService()
-      setProfileList(response.data);
+      setMyProfile(response.data);
 
         // const response2 = await getMyCosplayService()
         // setMyCosplay(response2.data);
@@ -48,20 +48,30 @@ function MyProfile() {
   }
 
 
-
     return (
         <div>
             <div className="bottom-padding" >
         <div className="one-row">
-          <h1>Hola {profileList.name}! </h1>
-          <p>Alergias: {profileList.alergies}</p>
-          <p>Vienes a la boda? {profileList.attendance}</p>
+          <h1>Hola {myProfile.name}! </h1>
+          <p>Alergias: {myProfile.alergies}</p>
+          <p>Vienes a la boda? {myProfile.attendance}</p>
+                   
+          {/* Display cosplay details here NOT SURE IF IT WORKS*/}
+                {myProfile.cosplayId.map((cosplay) => (
+                <li key={cosplay._id}>
+                    <p>Name: {cosplay.name}</p>
+                    <p>Description: {cosplay.description}</p>
+                    
+                </li>
+                ))}
+          
 
           {/* <div className='btn'>
-            <Link to={`/profile/${profileList._id}/edit`}>
+            <Link to={`/profile/${myProfile._id}/edit`}>
               <button>Edit your profile</button>
             </Link>
           </div> */}
+
         </div>
 
         </div>

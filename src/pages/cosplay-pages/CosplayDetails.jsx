@@ -1,20 +1,17 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState } from 'react'; 
-import { getCosplayDetailsService } from "../../services/cosplay.services";
+import { getCosplayDetailsService, getMyCosplayService } from "../../services/cosplay.services";
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 function CosplayDetails() {
 
+    const navigate = useNavigate();
     const {cosplayId} = useParams();
     const [details, setDetails] = useState([]);
 
     const [isFetching, setIsFetching] = useState(true);
     
-    
-    // if (isFetching === true) {
-    //     return <h3>...buscando</h3>    //! AQUI VA EL SPINNER
-    // };
-
     useEffect(() => {
         getData()
     }, []);
@@ -26,11 +23,34 @@ function CosplayDetails() {
             setDetails(response.data);
             // console.log("getData cosplayDetails", response.data)
 
-            // setIsFetching(false);
+            setIsFetching(false);
         } catch(err){
-            console.log(err);
+            navigate("/error")
         }
     }
+
+    //to be able to choose a cosplay
+    const chooseCosplay = async () => {
+        try {
+            await getMyCosplayService(cosplayId)
+            getData()
+        } catch(err){
+            navigate("/error")
+        }
+    }
+
+    //! FALTA UN-CHOOSE COSPLAY
+
+
+  //if content is not loading, show spinner
+  if (isFetching === true) {
+    return (
+      <div className="spinner">
+        <PacmanLoader color="#d68736" size={100} />
+      </div>
+    )
+  }
+
 
     return (
         <div>
@@ -39,6 +59,15 @@ function CosplayDetails() {
             <h5>{details.name}</h5>
             <p>{details.description}</p>
             <p>Family: {details.family}</p>
+
+
+            {/* {choosenBy.includes(userId)
+              ? <button onClick={delChoosenCosplay}>Liberar Cosplay</button>
+
+              : <button onClick={chooseCosplay}>Elegir Cosplay</button>
+            } */}
+      <button onClick={chooseCosplay}>Elegir Cosplay</button>
+
         </div>
     )
 
