@@ -29,7 +29,7 @@ function CosplayList(){
     const getData = async () => {
         try {
             const response = await getCosplayListServices()
-            console.log(response);
+            // console.log(response);
             setList(response.data);
             // setIsFetching(false);
         }catch(err) {
@@ -40,16 +40,17 @@ function CosplayList(){
     return(
         <div>
 
-            {/* <SearchCosplays/>
-            <FamilySearch/> */}
+            <SearchCosplays/>
+            <FamilySearch/>
 
             <h4> Lista de todos los Cosplays</h4>
 
             {list.map((eachCosplay)=> {
                 return (
                     <p key={eachCosplay._id}>
-                        {/* <Link to={`/cosplay/${eachCosplay._id}/details`}>{eachCosplay.name}</Link> */}
-                        {eachCosplay.name}  </p>
+                        <Link to={`/cosplay/${eachCosplay._id}/details`}>{eachCosplay.name}</Link>
+                        {/* {eachCosplay.name}  </p> */}
+                        </p>
                 )
             })}
 

@@ -33,8 +33,6 @@ function Login() {
       //validate with BE with auth.services.js
       const response = await loginService(userCredentials)
 
-      console.log("Auth Token:", response.data.authToken);
-
       //get the Token and store it in "authToken"
       localStorage.setItem("authToken", response.data.authToken)
 
@@ -42,7 +40,10 @@ function Login() {
       await authenticaUser()
 
       //redirect user
+      // navigate("/profile/my-profile")
       navigate("/cosplay/cosplay-list")
+
+
 
     } catch (err) {
       if (err.response && err.response.status === 400) {

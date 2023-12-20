@@ -29,8 +29,8 @@ function App() {
           <Route path='/login' element={<Login />} />
 
           {/* private pages*/}
-          <Route path='/cosplay/cosplay-list' element={<CosplayList />}/>
-          <Route path='/cosplay/:cosplayId/details' element={<CosplayDetails />}/>
+          <Route path='/cosplay/cosplay-list' element={<IsPrivate><CosplayList /></IsPrivate>}/>
+          <Route path='/cosplay/:cosplayId/details' element={<IsPrivate><CosplayDetails /></IsPrivate>}/>
           <Route path='/profile/my-profile' element={<IsPrivate> <MyProfile /> </IsPrivate>} />
 
           {/* AQUÍ FALTA LIMITAR SI ADMIN USER? O VA EN LA RUTA DIRECTAMENTE? */}

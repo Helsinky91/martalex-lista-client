@@ -38,7 +38,7 @@ function CosplayDetails() {
             <img src={details.image} width="300" alt={details.name}/>
             <h5>{details.name}</h5>
             <p>{details.description}</p>
-            {/* <p>{details.family}</p> */}
+            <p>Family: {details.family}</p>
         </div>
     )
 
