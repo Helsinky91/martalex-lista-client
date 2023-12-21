@@ -59,6 +59,14 @@ function CosplayDetails() {
             <h1>{details.name}</h1>
             <img src={details.image} width="300" alt={details.name}/>
                 <ul>
+
+
+                
+            {details.descriptionCat !== undefined ? <li><Link to="{details.descriptionCat}">Detalls del cosplay (CAT) </Link></li> : <p></p>}
+          
+
+
+
                     <li><Link to="{details.descriptionCat}">Detalls del cosplay (CAT) </Link></li>
                     <li><Link to="{details.descriptionEsp}">Detalles del cosplay (ESP) </Link></li>
                     <li><Link to="{details.cosplayLink}">Cosplay Img</Link></li>
@@ -70,7 +78,7 @@ function CosplayDetails() {
             <br/>
             <br/>
                         
-                        {/* <p>Family: {details.family}</p> */}
+                        
 
 
             {/* {choosenBy.includes(userId)

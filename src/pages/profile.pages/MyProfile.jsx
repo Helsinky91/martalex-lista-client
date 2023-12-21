@@ -28,7 +28,9 @@ function MyProfile() {
       //call my profile info 
       const response = await getMyProfileService()
       setMyProfile(response.data);
-        console.log("getMyProfileService: ", response.data)
+        // console.log("getMyProfileService: ", response.data)
+
+        
       
         // if (response.data.cosplayId !== null){
 
@@ -50,6 +52,7 @@ function MyProfile() {
       navigate("/error")
     }
   }
+  console.log("myProfile.role ", myProfile.role)
 
     //if content is not loading, show spinner
   if (isFetching === true) {
@@ -63,6 +66,16 @@ function MyProfile() {
 
     return (
         <div>
+
+            {myProfile.role === "admin" || myProfile.role === "limited" ? (
+
+                <p><Link to="/profile/list">
+                <button >Lista de TODOS los perfiles</button></Link></p>
+            ) : (
+                <p></p>
+            )          
+            }
+
             <div className="bottom-padding" >
         <div className="one-row">
           <h1>Hola {myProfile.name}! </h1>

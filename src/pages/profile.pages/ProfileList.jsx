@@ -1,11 +1,11 @@
-// import React, { useState, useEffect }from "react";
-import { getProfilesListService } from '../../services/profile.services';
-
-// In your functional component
+import { getMyProfileService, getProfilesListService } from '../../services/profile.services';
 import React, { useState, useEffect } from 'react';
+
 
 function ProfileList() {
     const [profileList, setProfileList] = useState([]);
+    const [myProfile, setMyProfile] = useState([])
+    
 
     useEffect(() => {
     // Fetch the profile list when the component mounts
@@ -13,7 +13,12 @@ function ProfileList() {
         try {
         const response = await getProfilesListService();
         setProfileList(response.data);
-        } catch (error) {
+        const response2 = await getMyProfileService()
+      setMyProfile(response2.data);
+    console.log("response2.data " , response2.data)   
+      
+
+} catch (error) {
         console.error('Error fetching profile list:', error);
         }
     };
@@ -25,6 +30,8 @@ function ProfileList() {
         
         //if user === limited > Show user info + attendance + alergies ALSO
         //if user === limited && cosplay !== null > show "cosplay escogido"
+
+        console.log("myProfile ", myProfile.role)
     return (
     <div>
         <h1>Profile List</h1>
@@ -32,19 +39,37 @@ function ProfileList() {
         {profileList.map((user) => (
             <li key={user._id}>
             <p>Name: {user.name}</p>
-            <p>Email: {user.email}</p>
-            <p>Chosen Cosplays:</p>
+
+
+                {myProfile.role === "admin" ? (
+                    <div>
+            <p>Cosplay Elegido:</p>
             <ul>
                 {user.cosplayId.map((cosplay) => (
-                <li key={cosplay._id}>
+                    <li key={cosplay._id}>
                     {/* Display cosplay details here */}
                     <p>Name: {cosplay.name}</p>
                     <p>Description: {cosplay.description}</p>
                     {/* Add more details as needed */}
                 </li>
                 ))}
-            </ul>
-            </li>
+                </ul>
+            </div>
+            ) : (
+                <p></p>
+            )}
+
+            {myProfile.role === "limited" ? (
+                <div>
+                
+                <p>Alérgias: {user.alergies} </p>
+                <p>Viene a la boda? {user.attendance} </p>
+                </div>
+                ) : (<p></p>
+            )}
+
+                        </li>
+            
         ))}
         </ul>
     </div>

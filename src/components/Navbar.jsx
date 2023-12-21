@@ -7,6 +7,8 @@ import logo from "../assets/Logo.jpg"
 function Navbar() {
   const { authenticaUser, isLoggedIn } = useContext(AuthContext)
 
+  console.log("isLoggedIn :", isLoggedIn)
+
   const handleLogout = () => {
     localStorage.removeItem("authToken")
     //invoke authenticaUser() to change states
@@ -41,9 +43,9 @@ function Navbar() {
           <NavLink to="/cosplay/cosplay-list" className={assignClassName}>
             <button >Cosplay</button>
           </NavLink>
-          <NavLink to="/profile/list" className={assignClassName}>
+          {/* <NavLink to="/profile/list" className={assignClassName}>
             <button >ProfileList</button>
-          </NavLink>
+          </NavLink> */}
           
 
           <NavLink to="/profile/my-profile" className={assignClassName}>
