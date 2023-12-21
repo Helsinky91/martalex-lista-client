@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from 'react'; 
-import { getCosplayDetailsService, getMyCosplayService } from "../../services/cosplay.services";
+import { getCosplayDetailsService, chooseCosplayService } from "../../services/cosplay.services";
 import PacmanLoader from "react-spinners/PacmanLoader";
 
 function CosplayDetails() {
@@ -19,9 +19,9 @@ function CosplayDetails() {
     const getData = async () => {
         try{
             const response = await getCosplayDetailsService(cosplayId)
-            // console.log("cosplayId", cosplayId)
+            console.log("cosplayId", cosplayId)
             setDetails(response.data);
-            // console.log("getData cosplayDetails", response.data)
+            console.log("getData cosplayDetails", response.data)
 
             setIsFetching(false);
         } catch(err){
@@ -32,7 +32,8 @@ function CosplayDetails() {
     //to be able to choose a cosplay
     const chooseCosplay = async () => {
         try {
-            await getMyCosplayService(cosplayId)
+            await chooseCosplayService(cosplayId)
+            console.log("the cosplay has been added!", cosplayId)
             getData()
         } catch(err){
             navigate("/error")

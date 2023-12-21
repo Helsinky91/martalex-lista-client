@@ -2,7 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PacmanLoader from "react-spinners/PacmanLoader";
-import { getMyCosplayService, getMyProfileService } from '../../services/profile.services';
+import { getMyProfileService } from '../../services/profile.services';
+import { getCosplayDetailsService } from '../../services/cosplay.services';
 
 
 function MyProfile() {
@@ -27,10 +28,22 @@ function MyProfile() {
       //call my profile info 
       const response = await getMyProfileService()
       setMyProfile(response.data);
+        console.log("getMyProfileService: ", response.data)
+      
+        if (response.data.cosplayId !== null){
 
-        // const response2 = await getMyCosplayService()
-        // setMyCosplay(response2.data);
+            const response2 = await getCosplayDetailsService(response.data.cosplayId)
+            setMyCosplay(response2.data);
+            console.log("getCosplayDetailsService ", response2.data )
+        } else {
+            console.log("cosplay is undefined or empty")
+        }
         
+    // if (response.data.cosplayId) {
+    //     const response2 = await chooseCosplayService(response.data.cosplayId);
+    //     setMyCosplay(response2.data);
+    // }
+
         setIsFetching(false)
 
     } catch (error) {
@@ -56,14 +69,14 @@ function MyProfile() {
           <p>Alergias: {myProfile.alergies}</p>
           <p>Vienes a la boda? {myProfile.attendance}</p>
                    
-          {/* Display cosplay details here NOT SURE IF IT WORKS*/}
+          {/* Display cosplay details here NOT SURE IF IT WORKS
                 {myProfile.cosplayId.map((cosplay) => (
                 <li key={cosplay._id}>
                     <p>Name: {cosplay.name}</p>
                     <p>Description: {cosplay.description}</p>
                     
                 </li>
-                ))}
+                ))} */}
           
 
           {/* <div className='btn'>

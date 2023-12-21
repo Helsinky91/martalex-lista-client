@@ -9,13 +9,13 @@ const getCosplayDetailsService = (id) => {
     return service.get(`/cosplay/${id}/details`);
 }
 
-const getMyCosplayService = (id) => {
-    return service.get(`/cosplay/${id}/choose-cosplay`);
+const chooseCosplayService = (cosplayId) => {
+    return service.patch(`/cosplay/${cosplayId}/choose-cosplay`);
 }
 
 
 export {
     getCosplayListServices,
     getCosplayDetailsService,
-    getMyCosplayService
+    chooseCosplayService
 };
