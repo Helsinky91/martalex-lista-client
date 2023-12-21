@@ -30,14 +30,14 @@ function MyProfile() {
       setMyProfile(response.data);
         console.log("getMyProfileService: ", response.data)
       
-        if (response.data.cosplayId !== null){
+        // if (response.data.cosplayId !== null){
 
-            const response2 = await getCosplayDetailsService(response.data.cosplayId)
-            setMyCosplay(response2.data);
-            console.log("getCosplayDetailsService ", response2.data )
-        } else {
-            console.log("cosplay is undefined or empty")
-        }
+        //     const response2 = await getCosplayDetailsService(response.data.cosplayId)
+        //     setMyCosplay(response2.data);
+        //     console.log("getCosplayDetailsService ", response2.data )
+        // } else {
+        //     console.log("cosplay is undefined or empty")
+        // }
         
     // if (response.data.cosplayId) {
     //     const response2 = await chooseCosplayService(response.data.cosplayId);
