@@ -93,7 +93,7 @@ function CosplayDetails() {
 
               : <button className="choose-btn" onClick={chooseCosplay}>Elegir Cosplay</button>
             } */}
-      <button className="choose-btn" onClick={chooseCosplay}>Elegir Cosplay</button>
+      {/* <button className="choose-btn" onClick={chooseCosplay}>Elegir Cosplay</button> */}
 
         </div>
     )

@@ -42,22 +42,30 @@ function CosplayList(){
     return(
         <div>
 
-            <SearchCosplays/>
-            <FamilySearch/>
+            {/* <SearchCosplays/>
+            
+            <FamilySearch/> */}
+            {/* <div class="recipeFormCard">
+          <SearchRecipe filterList={filterList} />
+        </div> */}
 
             <h4> Lista de todos los Cosplays</h4>
 
+         <div className="cosplayBoxCard">
+
             {list.map((eachCosplay)=> {
                 return (
-                    <p key={eachCosplay._id}>
-                        <img src={eachCosplay.image} width="100" alt={eachCosplay.name}/>
+                    <div key={eachCosplay._id} class="shadow-lg p-3 mb-5 bg-body rounded cosplayCard" >
+                        <Link to={`/cosplay/${eachCosplay._id}/details`}><img src={eachCosplay.image} width="100" alt={eachCosplay.name}/></Link>
                         <br />
                         <Link to={`/cosplay/${eachCosplay._id}/details`}>{eachCosplay.name}</Link>
-                        <hr />
+                        <p>{eachCosplay.nameDetails}</p>
+                        {/* <hr className="hr-cosplay" /> */}
                         {/* {eachCosplay.name}  </p> */}
-                        </p>
+                        </div>
                 )
             })}
+            </div>
 
 
 

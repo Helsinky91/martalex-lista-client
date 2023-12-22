@@ -85,6 +85,21 @@ a {
 }
 
 
+.cosplayBoxCard {
+  display: flex;
+  flex-wrap: wrap;
+ justify-content: center;
+ /* min-height: 100px; HERE TO PLACE A MIN HEIGHT FOR ALL PICS TO LOOK THE SAME*/
+}
+
+.cosplayCard{
+  /* background-color: white; */
+  padding-left: 1%;
+  padding-right: 1%;
+
+}
+
+
 .error-message {
   color: rgba(255, 0, 43, 0.94);
   font-weight: bold;
@@ -101,6 +116,16 @@ a {
 .footer {
   background-color: rgba(128, 128, 128, 0.404);
 }
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #1A2040;
+
+}
+
 /* 
 .App-logo {
   height: 40vmin;
