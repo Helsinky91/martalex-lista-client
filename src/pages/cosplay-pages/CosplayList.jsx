@@ -6,6 +6,8 @@ import { Link,  useNavigate } from 'react-router-dom';
 import FamilySearch from '../../components/FamilySearch';
 import SearchCosplays from '../../components/SearchCosplay';
 import { getCosplayListServices } from '../../services/cosplay.services';
+import PacmanLoader from "react-spinners/PacmanLoader";
+
 
  
 
@@ -22,10 +24,7 @@ function CosplayList(){
         getData();
     }, []);
 
-    // if (isFetching === true) {
-    //     return <h3>...buscando</h3>    //! AQUI VA EL SPINNER
-    // };
-
+    
     
 
     const getData = async () => {
@@ -33,17 +32,26 @@ function CosplayList(){
             const response = await getCosplayListServices()
             // console.log(response);
             setList(response.data);
-            // setIsFetching(false);
+            setIsFetching(false);
         }catch(err) {
             navigate("/error")
         }
     } 
 
+      //if content is not loading, show spinner
+  if (isFetching === true) {
+    return (
+      <div className="spinner">
+        <PacmanLoader color="#d68736" size={100} />
+      </div>
+    )
+  }
+
     return(
         <div>
 
             {/* <SearchCosplays/>
-            
+
             <FamilySearch/> */}
             {/* <div class="recipeFormCard">
           <SearchRecipe filterList={filterList} />

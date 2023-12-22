@@ -78,7 +78,7 @@ function MyProfile() {
           <p>Alergias: {myProfile.alergies}</p>
           <p>Vienes a la boda? {myProfile.attendance}</p>
 
-          <button><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
+          <button className="btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
 
           {/* Display cosplay details here NOT SURE IF IT WORKS
                 {myProfile.cosplayId.map((cosplay) => (
