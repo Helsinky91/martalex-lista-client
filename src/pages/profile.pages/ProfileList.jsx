@@ -1,3 +1,4 @@
+import { fireEvent } from '@testing-library/react';
 import { getMyProfileService, getProfilesListService } from '../../services/profile.services';
 import React, { useState, useEffect } from 'react';
 
@@ -40,23 +41,21 @@ function ProfileList() {
 
                 {myProfile.role === "admin" ? (
                 <div>
-                    <p>Cosplay Elegido:</p>
-                    <ul>
-                        {user.cosplayId.map((cosplay) => (
-                            <li key={cosplay._id}>
-                                {cosplay === undefined ? (
-                                    <p>Ohhh not choosen yet... </p>
-                                ) : (
-                                    <div>
-                                        <p>Name: {cosplay.name}</p>
-                                        <p>{cosplay.image} width="300" alt={cosplay.name} </p>
-                                    </div>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                ) : (<p></p>)}
+                    {/* <p>Cosplay Elegido:</p> */}
+                    {!user.cosplayId ? ( <p>Ohhh not choosen yet... </p> ) : (    //!How to do this? 
+                        <div>
+                            <ul>
+                                {user.cosplayId.map((cosplay) => (
+                                    <li key={cosplay._id}>                                  
+                                        <p>{cosplay.name}</p>
+                                        <img src={cosplay.image} width="150" alt={cosplay.name} />  
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                 </div>
+                ) : ('')}
 
                 {myProfile.role === "limited" ? (
                 <div>           
@@ -64,7 +63,7 @@ function ProfileList() {
                     <p><b>Viene a la boda?</b> {user.attendance} </p>
                     {user.cosplayId === undefined ? (<p><b>Ha elegido Cosplay? </b>Sí</p>): (<p><b>Ha elegido Cosplay?</b> No</p>)}
                 </div>
-                ) : (<p></p>)}
+                ) : ('')}
 
                 <hr />
             </li>

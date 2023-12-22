@@ -27,7 +27,7 @@ function Home() {
           <p><b>¿Respetad el protocolo!</b></p>
           
         </div>
-        {isLoggedIn === false ? (
+        {!isLoggedIn ? (
           
           <div className="register-form">
             <Signup />

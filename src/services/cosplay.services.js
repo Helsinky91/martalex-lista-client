@@ -5,8 +5,8 @@ const getCosplayListServices = () => {
     //this equals to http://localhost:5005/api + /cosplay/cosplay-list
 }
 
-const getCosplayDetailsService = (cosplayId) => {
-    return service.get(`/cosplay/${cosplayId}/details`);
+const getCosplayDetailsService = (id) => {
+    return service.get(`/cosplay/${id}/details`);
 }
 
 const chooseCosplayService = (cosplayId) => {

@@ -52,7 +52,7 @@ function MyProfile() {
       navigate("/error")
     }
   }
-  
+
   //if content is not loading, show spinner
   if (isFetching === true) {
     return (
@@ -72,22 +72,32 @@ function MyProfile() {
           <button >Lista de TODOS los invitados </button></Link></p>
       ) : (<p></p>)}
 
-      <div className="bottom-padding" >
-        <div className="one-row">
+      <div className="" >
+        <div className="">
           <h1>Hola {myProfile.name}! </h1>
           <p>Alergias: {myProfile.alergies}</p>
           <p>Vienes a la boda? {myProfile.attendance}</p>
 
-          <button className="btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
+          {myProfile.cosplayId === undefined ? (
+            <button className="btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
 
-          {/* Display cosplay details here NOT SURE IF IT WORKS
-                {myProfile.cosplayId.map((cosplay) => (
+          ) : (
+            <div>
+              {/* TO CHECK ANOTHER WAY TO DO THIS WITHOUT A LIST */}
+              {myProfile.cosplayId.map((cosplay) => (
                 <li key={cosplay._id}>
-                    <p>Name: {cosplay.name}</p>
-                    <p>Description: {cosplay.description}</p>
-                    
+                  <p>Name: {cosplay.name}</p>
+                  <img src={cosplay.image} width="200" alt={cosplay.name} />
+                  {/* HERE TO REDIRECT TO ITS DETAILED PAGE */}
+
                 </li>
-                ))} */}
+
+              ))}
+            </div>
+
+          )}
+
+
 
 
           {/* <div className='btn'>
