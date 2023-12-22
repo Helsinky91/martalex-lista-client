@@ -28,33 +28,32 @@ function MyProfile() {
       //call my profile info 
       const response = await getMyProfileService()
       setMyProfile(response.data);
-        // console.log("getMyProfileService: ", response.data)
+      // console.log("getMyProfileService: ", response.data)
 
-        
-      
-        // if (response.data.cosplayId !== null){
 
-        //     const response2 = await getCosplayDetailsService(response.data.cosplayId)
-        //     setMyCosplay(response2.data);
-        //     console.log("getCosplayDetailsService ", response2.data )
-        // } else {
-        //     console.log("cosplay is undefined or empty")
-        // }
-        
-    // if (response.data.cosplayId) {
-    //     const response2 = await chooseCosplayService(response.data.cosplayId);
-    //     setMyCosplay(response2.data);
-    // }
 
-        setIsFetching(false)
+      // if (response.data.cosplayId !== null){
+
+      //     const response2 = await getCosplayDetailsService(response.data.cosplayId)
+      //     setMyCosplay(response2.data);
+      //     console.log("getCosplayDetailsService ", response2.data )
+      // } else {
+      //     console.log("cosplay is undefined or empty")
+      // }
+
+      // if (response.data.cosplayId) {
+      //     const response2 = await chooseCosplayService(response.data.cosplayId);
+      //     setMyCosplay(response2.data);
+      // }
+
+      setIsFetching(false)
 
     } catch (error) {
       navigate("/error")
     }
   }
-  console.log("myProfile.role ", myProfile.role)
-
-    //if content is not loading, show spinner
+  
+  //if content is not loading, show spinner
   if (isFetching === true) {
     return (
       <div className="spinner">
@@ -64,24 +63,21 @@ function MyProfile() {
   }
 
 
-    return (
-        <div>
+  return (
+    <div>
 
-            {myProfile.role === "admin" || myProfile.role === "limited" ? (
+      {myProfile.role === "admin" || myProfile.role === "limited" ? (
 
-                <p><Link to="/profile/list">
-                <button >Lista de TODOS los perfiles</button></Link></p>
-            ) : (
-                <p></p>
-            )          
-            }
+        <p><Link to="/profile/list">
+          <button >Lista de TODOS los invitados </button></Link></p>
+      ) : (<p></p>)}
 
-            <div className="bottom-padding" >
+      <div className="bottom-padding" >
         <div className="one-row">
           <h1>Hola {myProfile.name}! </h1>
           <p>Alergias: {myProfile.alergies}</p>
           <p>Vienes a la boda? {myProfile.attendance}</p>
-                   
+
           {/* Display cosplay details here NOT SURE IF IT WORKS
                 {myProfile.cosplayId.map((cosplay) => (
                 <li key={cosplay._id}>
@@ -90,7 +86,7 @@ function MyProfile() {
                     
                 </li>
                 ))} */}
-          
+
 
           {/* <div className='btn'>
             <Link to={`/profile/${myProfile._id}/edit`}>
@@ -100,9 +96,9 @@ function MyProfile() {
 
         </div>
 
-        </div>
-        </div>
-    )
+      </div>
+    </div>
+  )
 
 
 };

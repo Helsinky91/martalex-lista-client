@@ -51,7 +51,14 @@ function CosplayDetails() {
       </div>
     )
   }
-
+  
+//   Otra cosa: hauria de mostrar-se el nom del personatge com a títol, 
+//   de subtítol els detalls del personatge.
+//   La foto
+//   La sèrie
+//   I més detalls de la sèrie;
+  
+//   Després els links
 
     return (
         <div>

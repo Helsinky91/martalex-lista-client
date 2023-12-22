@@ -37,9 +37,9 @@ function Navbar() {
 
 
         <div>
-          <NavLink to="/" className={assignClassName}>
+          {/* <NavLink to="/" className={assignClassName}>
             <button >Home</button>
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/cosplay/cosplay-list" className={assignClassName}>
             <button >Cosplay</button>
           </NavLink>
@@ -60,7 +60,7 @@ function Navbar() {
       ) : (
 
         <div>
-          <NavLink to="/" className={assignClassName}>
+          {/* <NavLink to="/" className={assignClassName}>
             <button >Home</button>
           </NavLink>
           <NavLink to="/cosplay/cosplay-list" className={assignClassName}>
@@ -68,7 +68,7 @@ function Navbar() {
           </NavLink>
           <NavLink to="/signup" className={assignClassName} >
             <button >Regístrate</button>
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/login" className={assignClassName}>
             <button >Entra</button>
           </NavLink>

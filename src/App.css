@@ -1,8 +1,13 @@
 .App {
   text-align: center;
-  min-height: 100vh
+  min-height: 100vh;
+  background-color: #1A2040;
+  color: white;
 }
 
+a {
+  color: rgb(255, 255, 255);
+}
 
 .navbar{
   background-color: rgba(7, 7, 7, 0.700);
@@ -37,6 +42,47 @@
   font-size: 20px;
 }
 
+.app-logo {
+ /* fer que estigui centrat */
+}
+
+.dashboard{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items:flex-start;
+  padding-top: 50px;
+  
+}
+.dashboard div{
+  width: 500px;  
+}
+
+.main-text {
+  padding-left: 1%;
+  padding-right: 1%;
+  background-color: #F2CD36;
+  background-position: center;
+  border-radius: 10%;
+  color: black;
+}
+
+.registr-form {
+  padding-left: 1%;
+  padding-right: 1%;
+  background-color: #E94B50;
+  background-position: center;
+  border-radius: 10%;
+  color: black;
+}
+
+.home-info{
+  color: white
+}
+
+.btn-yellow {
+  background-color: #F2CD36;
+}
 
 
 .error-message {

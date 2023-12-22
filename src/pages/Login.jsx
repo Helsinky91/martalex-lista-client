@@ -19,6 +19,8 @@ function Login() {
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
+
+
   
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -35,13 +37,14 @@ function Login() {
 
       //get the Token and store it in "authToken"
       localStorage.setItem("authToken", response.data.authToken)
-
+      
       //invoke Token validation (in auth.context)
       await authenticaUser()
-
+      
       //redirect user
       // navigate("/profile/my-profile")
       navigate("/cosplay/cosplay-list")
+      
 
 
 
@@ -55,6 +58,7 @@ function Login() {
       }
     }
   }
+ 
 
   return (
     <div className="auth-page btn" >

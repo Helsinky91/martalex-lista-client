@@ -55,9 +55,9 @@ function Signup() {
   };
 
   return (
-    <div className="auth-page btn">
+    <div className="registr-form btn">
 
-      <h1>Regístrate</h1>
+      <h1 className="home-info">Regístrate</h1>
 
       <form onSubmit={handleSignup}>
 
@@ -109,7 +109,7 @@ function Signup() {
 
         <br />
         <br />
-        <button type="submit">Regístrate</button>
+        <button className="btn-yellow" type="submit">Regístrate</button>
 
         {errorMessage !== "" && <p>{errorMessage}</p>}
 

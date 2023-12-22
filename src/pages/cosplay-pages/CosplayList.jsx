@@ -50,7 +50,10 @@ function CosplayList(){
             {list.map((eachCosplay)=> {
                 return (
                     <p key={eachCosplay._id}>
+                        <img src={eachCosplay.image} width="100" alt={eachCosplay.name}/>
+                        <br />
                         <Link to={`/cosplay/${eachCosplay._id}/details`}>{eachCosplay.name}</Link>
+                        <hr />
                         {/* {eachCosplay.name}  </p> */}
                         </p>
                 )
