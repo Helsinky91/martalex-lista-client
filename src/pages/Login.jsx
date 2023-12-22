@@ -42,8 +42,8 @@ function Login() {
       await authenticaUser()
       
       //redirect user
-      // navigate("/profile/my-profile")
-      navigate("/cosplay/cosplay-list")
+      navigate("/profile/my-profile")
+      // navigate("/cosplay/cosplay-list")
       
 
 
