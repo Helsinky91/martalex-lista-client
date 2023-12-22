@@ -66,7 +66,7 @@ function CosplayList(){
 
                     return (
                         <div key={eachCosplay._id} class="shadow-lg p-3 mb-5 bg-body rounded cosplayCard" >
-                        <Link to={`/cosplay/${eachCosplay._id}/details`}><img src={eachCosplay.image} width="100" alt={eachCosplay.name}/></Link>
+                        <Link to={`/cosplay/${eachCosplay._id}/details`}><img src={eachCosplay.image} width="150" alt={eachCosplay.name}/></Link>
                         <br />
                         <Link to={`/cosplay/${eachCosplay._id}/details`}>{eachCosplay.name}</Link>
                         <p>{eachCosplay.nameDetails}</p>

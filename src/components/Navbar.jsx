@@ -7,8 +7,6 @@ import logo from "../assets/Logo.jpg"
 function Navbar() {
   const { authenticaUser, isLoggedIn } = useContext(AuthContext)
 
-  console.log("isLoggedIn :", isLoggedIn)
-
   const handleLogout = () => {
     localStorage.removeItem("authToken")
     //invoke authenticaUser() to change states
