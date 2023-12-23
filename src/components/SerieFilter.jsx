@@ -18,6 +18,7 @@ function SerieFilter(props) {
         
         <button key={serie} onClick={() => onFilter(serie)}>
           {serie}
+          {/* posar aquí una condició if serie === "StarWars" show this image */}
         </button>
       ))}
     </div>

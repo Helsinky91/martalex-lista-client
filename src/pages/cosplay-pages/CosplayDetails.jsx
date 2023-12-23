@@ -61,14 +61,13 @@ function CosplayDetails() {
                     <img src={details.image} width="300" alt={details.name} />
                 </div>
                 <div>
-
-                        <h2>Info adicional: {details.nameDetails}</h2>
+                            {!details.nameDetails ? '' : <h2>Info adicional: {details.nameDetails}</h2> }
                         <h3>{details.serie}</h3>
-                        {details.descriptionCat === "undefined" ? <h4>{details.serieDetails}</h4> : ''}
+                        
                     <ul>
                         
                         
-                        {details.descriptionCat === "undefined" ? <li><a href={details.descriptionCat}>Detalls del cosplay (CAT) </a></li> : ''}
+                        {!details.descriptionCat ? '' : <li><a href={details.descriptionCat} target="_blank" rel="noopener noreferrer">Detalls del cosplay (CAT) </a></li> }
 
                         <li><a href={details.descriptionEsp} target="_blank" rel="noopener noreferrer">Detalles del cosplay (ESP) </a></li>
                         <li><a href={details.cosplayImage} target="_blank" rel="noopener noreferrer">Cosplay Img</a></li>
