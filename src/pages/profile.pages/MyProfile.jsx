@@ -28,11 +28,11 @@ function MyProfile() {
       //call my profile info 
       const response = await getMyProfileService()
       setMyProfile(response.data);
-      // console.log("getMyProfileService: ", response.data)
+      console.log("getMyProfileService: ", response.data)
 
 
 
-      // if (response.data.cosplayId !== null){
+      // if (response.data.cosplayId !== undefined){
 
       //     const response2 = await getCosplayDetailsService(response.data.cosplayId)
       //     setMyCosplay(response2.data);
@@ -77,7 +77,7 @@ function MyProfile() {
           <p>Alergias: {myProfile.alergies}</p>
           <p>Vienes a la boda? {myProfile.attendance}</p>
 
-          {myProfile.cosplayId === undefined ? (
+          {myProfile.cosplayId.length === 0 ? (
             <button className="btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
 
           ) : (

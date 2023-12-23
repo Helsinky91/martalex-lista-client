@@ -1,16 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { useState } from 'react';
 import { getCosplayDetailsService, chooseCosplayService } from "../../services/cosplay.services";
 import PacmanLoader from "react-spinners/PacmanLoader";
-
+import { getProfileService } from "../../services/profile.services";
+import { AuthContext } from "../../context/auth.context"
 
 function CosplayDetails() {
 
     const navigate = useNavigate();
     const { cosplayId } = useParams();
-    const [details, setDetails] = useState({});
-
+    const { user } = useContext(AuthContext)
+    const [ details, setDetails] = useState({});
+    const [ profile, setProfile ] = useState({})
+    
     const [isFetching, setIsFetching] = useState(true);
 
     useEffect(() => {
@@ -23,8 +25,13 @@ function CosplayDetails() {
             const response = await getCosplayDetailsService(cosplayId)
             setDetails(response.data);
             console.log("Cosplay detais: ", response.data)
+           //THIS IS WHAT I JUST ADDED
+            // const response2 = await getProfileService(user._id)
+            // setProfile(response2.data)
+            // console.log("active user info: ", response2.data)
             setIsFetching(false);
         } catch (err) {
+            console.error("Error choosing cosplay:", err);
             navigate("/error")
         }
     }
@@ -78,10 +85,12 @@ function CosplayDetails() {
                     <br />
 
 
-                    {/* {choosenBy.includes(userId)
-                        ? <button className="choose-btn" onClick={delChoosenCosplay}>Liberar Cosplay</button>
+                    {details.choosedBy  
+                        // ? <button className="choose-btn" onClick={delChoosenCosplay}>Liberar Cosplay</button>
+                        ? <h1> Ya tienes cosplay!!</h1>
                         : <button className="choose-btn" onClick={chooseCosplay}>Elegir Cosplay</button>
-                    } */}
+                    }
+
                     {/* <button className="choose-btn" onClick={chooseCosplay}>Elegir Cosplay</button> */}
                 </div>
             </div>
