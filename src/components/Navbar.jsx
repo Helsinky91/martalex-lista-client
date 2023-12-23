@@ -11,6 +11,7 @@ function Navbar() {
     localStorage.removeItem("authToken")
     //invoke authenticaUser() to change states
     authenticaUser()
+    // Navigate("/")
   }
 
   //function to invoke styles inside NavLink className
@@ -58,15 +59,7 @@ function Navbar() {
       ) : (
 
         <div>
-          {/* <NavLink to="/" className={assignClassName}>
-            <button >Home</button>
-          </NavLink>
-          <NavLink to="/cosplay/cosplay-list" className={assignClassName}>
-            <button >Cosplay List</button>
-          </NavLink>
-          <NavLink to="/signup" className={assignClassName} >
-            <button >Regístrate</button>
-          </NavLink> */}
+          
           <NavLink to="/login" className={assignClassName}>
             <button >Entra</button>
           </NavLink>

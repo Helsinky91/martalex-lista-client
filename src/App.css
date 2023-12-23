@@ -91,6 +91,12 @@ a {
   justify-content: space-around;
 }
 
+.serie-btn {
+  background-color: #F2CD36;
+  padding: 20px;
+  border-radius: 8%;
+}
+
 .cosplayBoxCard {
   padding-top: 15px;
   display: flex;
@@ -142,6 +148,19 @@ a {
   background-color: #1A2040;
 
 }
+.error-page{
+  background-image: url("../src/assets/bomba.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  /* padding-top: 500px; */
+  color: #E94B50;
+  min-height: 100vh;
+}
+
+.error-page > h2 {
+  /* background-color: #1A2040; */
+}
+
 
 /* 
 .App-logo {

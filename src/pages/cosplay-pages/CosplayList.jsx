@@ -99,7 +99,7 @@ function CosplayList() {
                             <div key={eachCosplay._id} className="shadow-lg p-3 mb-5 bg-body rounded cosplayCard">
 
                                 <Link to={`/cosplay/${eachCosplay._id}/details`}>
-                                    <img src={eachCosplay.image} alt={eachCosplay.name} width={200} />
+                                    <img src={eachCosplay.image} alt={eachCosplay.name}  height={200} />
                                     <p>{eachCosplay.name}</p>
                                     <p>{eachCosplay.nameDetails}</p>
                                 </Link>

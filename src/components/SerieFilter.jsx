@@ -11,7 +11,7 @@ function SerieFilter(props) {
   return (
     <div>
       {uniqueSeries.map((serie) => (
-        <button key={serie} onClick={() => onFilter(serie)}>
+        <button className="serie-btn" key={serie} onClick={() => onFilter(serie)}>
           {serie === "Star Wars" ? (
             <img src={placeholderImg} alt={serie} width={80} />
           ) : serie === "Harry Potter" ? (

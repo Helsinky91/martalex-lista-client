@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 function Error() {
   return (
     <div className="error-page">
-      <h1 >Nuestros desarrolladores cometieron un error, estamos trabjando en ello!</h1>
-      <Link to={"/"}>Home</Link>
+      <h2>Nuestros desarrolladores cometieron un error, estamos trabjando en ello!</h2>
+      <Link to={"/"}>HOME</Link>
     </div>
   )
 }
