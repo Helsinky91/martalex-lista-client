@@ -84,11 +84,18 @@ a {
   background-color: #F2CD36;
 }
 
-
-.cosplayBoxCard {
+.buscadores{
+  padding-top: 10px;
   display: flex;
   flex-wrap: wrap;
- justify-content: center;
+  justify-content: space-around;
+}
+
+.cosplayBoxCard {
+  padding-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
  /* min-height: 100px; HERE TO PLACE A MIN HEIGHT FOR ALL PICS TO LOOK THE SAME*/
 }
 

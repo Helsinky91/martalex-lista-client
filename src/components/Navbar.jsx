@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { AuthContext } from "../context/auth.context"
-import logo from "../assets/Logo.jpg"
+import homeLogo from "../assets/homeLogo.png"
 
 
 function Navbar() {
@@ -27,7 +27,7 @@ function Navbar() {
 
       <div>
         <NavLink to="/">
-          <img src={logo} alt="MartAlex logo" width={50} />
+          <img src={homeLogo} alt="MartAlex logo" width={40} />
         </NavLink>
       </div>
 

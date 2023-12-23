@@ -42,7 +42,6 @@ function CosplayDetails() {
 
     //! FALTA UN-CHOOSE COSPLAY
 
-
     //if content is not loading, show spinner
     if (isFetching === true) {
         return (
@@ -61,42 +60,34 @@ function CosplayDetails() {
                     <img src={details.image} width="300" alt={details.name} />
                 </div>
                 <div>
-                            {!details.nameDetails ? '' : <h2>Info adicional: {details.nameDetails}</h2> }
-                        <h3>{details.serie}</h3>
+                        {!details.nameDetails ? '' : <h2>Info adicional: {details.nameDetails}</h2> }
+                        <h3>Peli o serie: {details.serie}</h3>
+                        {!details.serieDetails ? '' : <h2>Título alternativo: {details.serieDetails}</h2> }
                         
-                    <ul>
-                        
+                    <ul>                     
                         
                         {!details.descriptionCat ? '' : <li><a href={details.descriptionCat} target="_blank" rel="noopener noreferrer">Detalls del cosplay (CAT) </a></li> }
-
                         <li><a href={details.descriptionEsp} target="_blank" rel="noopener noreferrer">Detalles del cosplay (ESP) </a></li>
                         <li><a href={details.cosplayImage} target="_blank" rel="noopener noreferrer">Cosplay Img</a></li>
-                        
 
                     </ul>
                     <button className="btn"><a href={details.youtubeLink} target="_blank" rel="noopener noreferrer">Buscar en Youtube</a></button>
                     <br />
-                    <button className="btn"><a href={details.aliExpressLink} target="_blank" rel="noopener noreferrer">Buscar en Aliexpress</a></button>
-
+                    <button className="btn"><a href={details.aliExpressLink} target="_blank" rel="noopener noreferrer">Buscar en Aliexpress</a></button>                   
                     <br />
                     <br />
-
-
 
 
                     {/* {choosenBy.includes(userId)
-              ? <button className="choose-btn" onClick={delChoosenCosplay}>Liberar Cosplay</button>
-              
-              : <button className="choose-btn" onClick={chooseCosplay}>Elegir Cosplay</button>
-            } */}
+                        ? <button className="choose-btn" onClick={delChoosenCosplay}>Liberar Cosplay</button>
+                        : <button className="choose-btn" onClick={chooseCosplay}>Elegir Cosplay</button>
+                    } */}
                     {/* <button className="choose-btn" onClick={chooseCosplay}>Elegir Cosplay</button> */}
                 </div>
             </div>
 
         </div>
     )
-
-
 };
 
 export default CosplayDetails;
