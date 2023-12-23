@@ -8,13 +8,11 @@ function SearchCosplay(props) {
 
   const handleChange = (event) => {
       setSearchItem(event.target.value)
-
       props.filterList(event.target.value)
   }
 
   return (
     <div>
-        {/* <button>Busca un Cosplay</button> */}
         <input value={searchItem} type="text" onChange={handleChange} placeholder="Busca un Cosplay"/>
     </div>
   )

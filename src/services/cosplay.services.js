@@ -13,9 +13,14 @@ const chooseCosplayService = (cosplayId) => {
     return service.patch(`/cosplay/${cosplayId}/choose-cosplay`);
 }
 
+const unChooseCosplayService = (cosplayId) => {
+    return service.patch(`/cosplay/${cosplayId}/unchoose-cosplay`);
+}
+
 
 export {
     getCosplayListServices,
     getCosplayDetailsService,
-    chooseCosplayService
+    chooseCosplayService,
+    unChooseCosplayService
 };

@@ -94,7 +94,7 @@ function CosplayList() {
 
             <div class="cosplayBoxCard">
                 {cosplayListToShow.map((eachCosplay) => {
-                    if (eachCosplay.choosedBy === undefined) {
+                    if (eachCosplay.choosedBy === undefined || eachCosplay.choosedBy === null) {
                         return (
                             <div key={eachCosplay._id} className="shadow-lg p-3 mb-5 bg-body rounded cosplayCard">
 

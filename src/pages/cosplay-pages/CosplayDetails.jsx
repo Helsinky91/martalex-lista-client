@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { getCosplayDetailsService, chooseCosplayService } from "../../services/cosplay.services";
+import { getCosplayDetailsService, chooseCosplayService, unChooseCosplayService } from "../../services/cosplay.services";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { getProfileService } from "../../services/profile.services";
 import { AuthContext } from "../../context/auth.context"
@@ -47,7 +47,17 @@ function CosplayDetails() {
         }
     }
 
-    //! FALTA UN-CHOOSE COSPLAY
+    //to be able to unchoose a cosplay
+    const unChooseCosplay = async () => {
+        try {
+            await unChooseCosplayService(cosplayId)
+            console.log("the cosplay has been deleted!", cosplayId)
+            getData()
+        } catch (err) {
+            navigate("/error")
+        }
+    }
+
 
     //if content is not loading, show spinner
     if (isFetching === true) {
@@ -86,8 +96,8 @@ function CosplayDetails() {
 
 
                     {details.choosedBy  
-                        // ? <button className="choose-btn" onClick={delChoosenCosplay}>Liberar Cosplay</button>
-                        ? <h1> Ya tienes cosplay!!</h1>
+                        ? <button className="choose-btn" onClick={unChooseCosplay}>Liberar Cosplay</button>
+                        // ? <h1> Ya tienes cosplay!!</h1>
                         : <button className="choose-btn" onClick={chooseCosplay}>Elegir Cosplay</button>
                     }
 
