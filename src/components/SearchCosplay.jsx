@@ -1,23 +1,23 @@
 import React from 'react'
-// import {useState} from 'react';
+import {useState} from 'react';
 
 
-function SearchRecipe(props) {
+function SearchCosplay(props) {
 
-//   const [searchItem, setSearchItem] = useState("")
+  const [searchItem, setSearchItem] = useState("")
 
-//   const handleChange = (event) => {
-//       setSearchItem(event.target.value)
+  const handleChange = (event) => {
+      setSearchItem(event.target.value)
 
-//       props.filterList(event.target.value)
-//   }
+      props.filterList(event.target.value)
+  }
 
   return (
     <div>
-        <button>Busca un Cosplay</button>
-{/* //       <input value={searchItem} type="text" onChange={handleChange} placeholder="Busca una receta"/> */}
+        {/* <button>Busca un Cosplay</button> */}
+        <input value={searchItem} type="text" onChange={handleChange} placeholder="Busca un Cosplay"/>
     </div>
   )
 }
 
-export default SearchRecipe
+export default SearchCosplay

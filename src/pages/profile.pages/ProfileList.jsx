@@ -1,4 +1,3 @@
-import { fireEvent } from '@testing-library/react';
 import { getMyProfileService, getProfilesListService } from '../../services/profile.services';
 import React, { useState, useEffect } from 'react';
 
@@ -14,7 +13,7 @@ function ProfileList() {
         try {
         const response = await getProfilesListService();
         setProfileList(response.data);
-        console.log(response.data)
+        // console.log(response.data)
         const response2 = await getMyProfileService()
       setMyProfile(response2.data);
     // console.log("response2.data " , response2.data)   
