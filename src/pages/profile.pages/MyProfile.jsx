@@ -67,9 +67,8 @@ function MyProfile() {
     <div>
 
       {myProfile.role === "admin" || myProfile.role === "limited" ? (
-
-        <p><Link to="/profile/list">
-          <button >Lista de TODOS los invitados </button></Link></p>
+          <Link to="/profile/list">
+          <button >Lista de TODOS los invitados </button></Link>
       ) : (<p></p>)}
 
       <div className="" >
@@ -86,15 +85,14 @@ function MyProfile() {
               {/* TO CHECK ANOTHER WAY TO DO THIS WITHOUT A LIST */}
               {myProfile.cosplayId.map((cosplay) => (
                 <li key={cosplay._id}>
-                  <p>Name: {cosplay.name}</p>
-                  <img src={cosplay.image} width="200" alt={cosplay.name} />
-                  {/* HERE TO REDIRECT TO ITS DETAILED PAGE */}
-
+                  <Link to={`/cosplay/${cosplay._id}/details`}>
+                    <h2>{cosplay.name}</h2>
+                    <img src={cosplay.image} width="200" alt={cosplay.name} />
+                  </Link>
                 </li>
 
               ))}
             </div>
-
           )}
 
 
