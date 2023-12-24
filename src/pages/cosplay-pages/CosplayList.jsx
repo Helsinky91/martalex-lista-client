@@ -76,7 +76,7 @@ function CosplayList() {
                     <SearchCosplay filterList={filterList} />
                 </div>
                 <div>
-                    <h4>Lista de Cosplays disponibles</h4>
+                    <h2>Lista de Cosplays disponibles</h2>
                 </div>
                 <div>
                     <button className="btn btn-blue" onClick={showAllCosplays}>Ver todos los Cosplays</button>

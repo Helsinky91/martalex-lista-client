@@ -29,7 +29,7 @@ function ProfileList() {
     //if user === limited > Show user info + attendance + alergies ALSO
     //if user === limited && cosplay !== null > show "cosplay escogido"        
     return (
-        <div>
+        <div className="profile-list">
             <h1>Lista Invitados</h1>
             <ul>
                 {profileList.map((user) => (

@@ -17,10 +17,10 @@ body {
 .App a:hover {
   font-weight: bold;
 }
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
   color: white;
   font-family: 'Roboto Mono', monospace;
-  font-size: 36px;
+  /* font-size: 36px; */
 }
 
 .btn {
@@ -118,6 +118,9 @@ h1, h2, h3, h4 {
   .app-logo {
     width: 100%;
   }
+  /* .buscadores {
+    flex-direction: column;
+  } */
 }
 .toggle-lang > a {
   color:#137AA5
@@ -140,27 +143,57 @@ h1, h2, h3, h4 {
   
 }
 
-
 .registr-form {
-  padding-left: 1%;
-  padding-right: 1%;
+  margin-top: 2%;
+  padding-top: 2px;
+  padding-bottom: 2%;
   background-color: #E94B50;
   background-position: center;
   border-radius: 10%;
   color: black;
+  margin-left: 35%;
+  margin-right: 35%
 }
 
-.home-info{
-  color: white
+.registr-form input {
+  border-radius: 1vh; 
+}
+
+.registr-form select {
+  margin-top: 1px;
+  margin-bottom: 3px;
+  border-radius: 1vh; 
+
 }
 
 .btn-yellow {
   background-color: #F2CD36;
+  color: black
 }
+/* .btn-yellow > a {
+  color: white;
+} */
 
 .btn-yellow:hover {
   background-color: #c9a92b;
+  color: black
 }
+.auth-page {
+  margin-top: 2%;
+  padding-top: 2px;
+  padding-bottom: 2%;
+  background-color:#106386;
+  background-position: center;
+  border-radius: 10%;
+  color: black;
+  margin-left: 35%;
+  margin-right: 35%
+}
+
+.auth-page input {
+  border-radius: 1vh; 
+}
+
 
 .buscadores{
   padding-top: 10px;
@@ -168,6 +201,7 @@ h1, h2, h3, h4 {
   flex-wrap: wrap;
   justify-content: space-around;
   color: white;
+  margin-bottom: 2vh;
 }
 
 .serie-btn {
@@ -181,8 +215,15 @@ h1, h2, h3, h4 {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 2vh;
-  
+  /* margin-left: 2vh; */
+  color: white;
+}
+
+.cosplayFormCard input{
+ border-color: #137AA5;
+ border-radius: 1vh; 
+ border: 3px solid #137AA5;
+ font-family: 'Roboto Mono', monospace;
 }
 
 .cosplayBoxCard {
@@ -206,12 +247,28 @@ h1, h2, h3, h4 {
   color: black;
 }
 
+.details-name{
+  margin-top: 1%;
+}
+
 .cosplay-info{
   display: flex;
   flex-wrap: wrap;
- justify-content: center;
+  justify-content: center;
+  gap: 12px;
  
 }
+
+.cosplay-details{
+  flex: 1 0 450px; /* Set initial main size to 200px, but allow it to shrink */
+  max-width: 450px;
+}
+
+.cosplay-det-list{
+  list-style-type: none;
+ /* color:#c9a92b */
+}
+
 
 .error-message {
   color: rgba(255, 0, 43, 0.94);
@@ -220,14 +277,25 @@ h1, h2, h3, h4 {
 }
 
 .choose-btn {
-  background-color:brown;
+  background-color:#E94B50;
   padding: 3%;
   font-size: x-large;
+}
+
+.choose-btn:hover {
+  background-color:#bd3c40;
+  padding: 3%;
+  font-size: x-large;
+  color: white;
 }
 
 .btn > a {
   color: black;
   /* padding:2px; */
+}
+
+.profile-page, .profile-list{
+  color: white;
 }
 
 .footer {

@@ -55,13 +55,13 @@ function Signup() {
   };
 
   return (
-    <div className="registr-form btn">
+    <div className="registr-form">
 
       <h1 className="home-info">Regístrate</h1>
 
       <form onSubmit={handleSignup}>
 
-        <label>Nombre</label>
+        <label>Nombre:</label>
         <br />
         <input
           type="text"
@@ -89,6 +89,7 @@ function Signup() {
           onChange={handlePasswordChange}
         />
         <br />
+        <br />
         <label>Asistencia: </label>
         
         <select value={attendance} onChange={handleAttendanceChange}>
@@ -97,8 +98,10 @@ function Signup() {
           <option value="No">No</option>
         </select>
         <br />
-
-        <label>Alergias:</label>
+        
+        <br />
+        <label>Alergias e intoleranias
+          <br /> alimentáreas:</label>
         <br />
         <input
           type="text"
@@ -106,7 +109,6 @@ function Signup() {
           value={alergies}
           onChange={handleAlergiesChange}
         />
-
         <br />
         <br />
         <button className="btn-yellow btn" type="submit">Regístrate</button>

@@ -63,26 +63,27 @@ function CosplayDetails() {
 
     return (
         <div>
-            <h1>{details.name}</h1>
+            <h1 className="details-name">{details.name}</h1>
+            <br />
             <div className="cosplay-info">
                 <div>
                     <img src={details.image} width="300" alt={details.name} />
                 </div>
-                <div>
-                        {!details.nameDetails ? '' : <h2>Info adicional: {details.nameDetails}</h2> }
-                        <h3>Peli o serie: {details.serie}</h3>
-                        {!details.serieDetails ? '' : <h2>Título alternativo: {details.serieDetails}</h2> }
-                        
-                    <ul>                     
-                        
-                        {!details.descriptionCat ? '' : <li><a href={details.descriptionCat} target="_blank" rel="noopener noreferrer">Personatge (català) </a></li> }
-                        <li><a href={details.descriptionEsp} target="_blank" rel="noopener noreferrer">Personatge (castellà) </a></li>
-                        <li><a href={details.cosplayImage} target="_blank" rel="noopener noreferrer">Imagen del Cosplay</a></li>
-
-                    </ul>
-                    <button className="btn"><a href={details.youtubeLink} target="_blank" rel="noopener noreferrer">Buscar en Youtube</a></button>
+                <div className="cosplay-details">
                     <br />
-                    <button className="btn"><a href={details.aliExpressLink} target="_blank" rel="noopener noreferrer">Buscar en Aliexpress</a></button>                   
+                        {!details.nameDetails ? '' : <h3><u>Info adicional</u>: {details.nameDetails}</h3> }
+                        <h4><u>Peli o serie</u>: {details.serie}</h4>
+                        {!details.serieDetails ? '' : <h5><u>Título alternativo</u>: {details.serieDetails}</h5> }
+                        <br />
+                    <ul className="cosplay-det-list">                     
+                        {!details.descriptionCat ? '' : <li><a href={details.descriptionCat} target="_blank" rel="noopener noreferrer">Detalls del personatge (català) </a></li> }
+                        <li><a href={details.descriptionEsp} target="_blank" rel="noopener noreferrer">Detalles del personaje (castellano) </a></li>
+                        <li><a href={details.cosplayImage} target="_blank" rel="noopener noreferrer">Imagen del Cosplay</a></li>
+                    </ul>
+                    <button className="btn-blue btn"><a href={details.youtubeLink} target="_blank" rel="noopener noreferrer">Buscar en Youtube</a></button>
+                    <br />
+                    <br />
+                    <button className="btn-blue btn"><a href={details.aliExpressLink} target="_blank" rel="noopener noreferrer">Buscar en Aliexpress</a></button>                   
                     <br />
                     <br />
 

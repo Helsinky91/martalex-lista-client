@@ -46,33 +46,31 @@ function MyProfile() {
 
 
   return (
-    <div>
-
+    <div className='profile-page'>
+<br />
       {myProfile.role === "admin" || myProfile.role === "limited" ? (
           <Link to="/profile/list">
-          <button className='btn' >Lista invitados </button></Link>
+          <button className='btn-blue btn' >Lista invitados </button></Link>
       ) : (<p></p>)}
+      
 
       <div className="" >
         <div className="">
           <h1>Hola {myProfile.name}! </h1>
+          <br />
           <p>Alergias: {myProfile.alergies}</p>
-          <p>Vienes a la boda? {myProfile.attendance}</p>
-
+          <p>Vienes a la boda? <b>{myProfile.attendance}</b></p>
+        <br />
           {myProfile.cosplayId.length === 0 ? (
-            <button className="btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
+            <button className="btn-yellow btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
 
           ) : (
             <div>
-              {/* TO CHECK ANOTHER WAY TO DO THIS WITHOUT A LIST */}
-              {myProfile.cosplayId.map((cosplay) => (
-                <li key={cosplay._id}>
+              {myProfile.cosplayId.map((cosplay) => (  
                   <Link to={`/cosplay/${cosplay._id}/details`}>
                     <h2>{cosplay.name}</h2>
                     <img src={cosplay.image} width="200" alt={cosplay.name} />
                   </Link>
-                </li>
-
               ))}
             </div>
           )}

@@ -61,7 +61,7 @@ function Login() {
  
 
   return (
-    <div className="auth-page btn" >
+    <div className="auth-page" >
 
       <h1>Entra</h1>
 
@@ -85,7 +85,7 @@ function Login() {
         />
         <br />
         <br />
-        <button className="btn" type="submit">Entra</button>
+        <button className="btn-red btn" type="submit">Entra</button>
         {errorMessage !== "" && <p className='error-message'>{errorMessage}</p>}
 
 
