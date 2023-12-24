@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { AuthContext } from "../context/auth.context"
 import homeLogo from "../assets/homeLogo.png"
+import homeLogo2 from "../assets/HomeButto.png"
 
 
 function Navbar() {
@@ -28,7 +29,7 @@ function Navbar() {
 
       <div>
         <NavLink to="/">
-          <img src={homeLogo} alt="MartAlex logo" width={40} />
+          <img src={homeLogo2} alt="MartAlex logo" width={40} />
         </NavLink>
       </div>
 
@@ -40,7 +41,7 @@ function Navbar() {
             <button >Home</button>
           </NavLink> */}
           <NavLink to="/cosplay/cosplay-list" className={assignClassName}>
-            <button >Cosplay</button>
+            <button >Cosplays</button>
           </NavLink>
           {/* <NavLink to="/profile/list" className={assignClassName}>
             <button >ProfileList</button>

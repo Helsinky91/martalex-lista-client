@@ -70,7 +70,6 @@ function CosplayDetails() {
                     <img src={details.image} width="300" alt={details.name} />
                 </div>
                 <div className="cosplay-details">
-                    <br />
                         {!details.nameDetails ? '' : <h3><u>Info adicional</u>: {details.nameDetails}</h3> }
                         <h4><u>Peli o serie</u>: {details.serie}</h4>
                         {!details.serieDetails ? '' : <h5><u>Título alternativo</u>: {details.serieDetails}</h5> }
@@ -88,11 +87,11 @@ function CosplayDetails() {
                     <br />
 
 
-                    {details.choosedBy  
+                    {/* {details.choosedBy  
                         ? <button className="choose-btn btn" onClick={unChooseCosplay}>Liberar Cosplay</button>
                         // ? <h1> Ya tienes cosplay!!</h1>
                         : <button className="choose-btn btn" onClick={chooseCosplay}>Elegir Cosplay</button>
-                    }
+                    } */}
 
                 </div>
             </div>

@@ -61,21 +61,22 @@ h1, h2, h3, h4, h5 {
 }
 
 .nav-active button {
-  background-color: orange;
+  background-color:#F2CD36;
+
   padding: 10px;
   font-family: 'VT323', monospace;
   font-size: 20px;
 }
 
 .nav-inactive button {
-  background-color: rgba(255, 166, 0, 0.661);
+  background-color:#c9a92b;
   padding: 8px;
   font-family: 'VT323', monospace;
   font-size: 20px;
 
 }
 .nav-logout button {
-  background-color: rgba(255, 77, 0, 0.661);
+  background-color:#E94B50;
   padding: 8px;
   font-family: 'VT323', monospace;
   font-size: 20px;

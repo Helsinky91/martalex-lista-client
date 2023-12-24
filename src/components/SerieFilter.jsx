@@ -1,4 +1,5 @@
 import React from "react";
+import { Carousel } from 'react-bootstrap';
 import placeholderImg from "../assets/placeholderImg.png";
 import asterix from "../assets/LogoAsterix.png";
 import attack from "../assets/LogoAttack.png";
@@ -34,75 +35,80 @@ function SerieFilter(props) {
 
     // Create a Set to store unique series
   const uniqueSeries = [...new Set(series)];
+  const evenSeries = uniqueSeries.length % 2 === 0 ? uniqueSeries : [...uniqueSeries, ''];
   
-  //! BUSCAR CARROUSEL BOOTSTRAP
+  
   return (
-    <div>
-      {uniqueSeries.map((serie) => (
+    <Carousel indicators={false}>
+      {uniqueSeries.map((serie, index) => (
+        <Carousel.Item key={index}>
         <button className="serie-btn" key={serie} onClick={() => onFilter(serie)}>
-          {serie === "Star Wars" ? (
-            <img src={starWars} alt={serie} width={80} />
+          { serie === "Star Wars" ? (
+            <img src={starWars} alt={serie} width={serie === '' ? 80 : 200}  />
           ) : serie === "Harry Potter" ? (
-            <img src={harryPotter} alt={serie} width={80} />
+            <img src={harryPotter} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "LOTR" ? (
-            <img src={lotr} alt={serie} width={80} />
+            <img src={lotr} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Naruto" ? (
-            <img src={naruto} alt={serie} width={80} />
+            <img src={naruto} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Shingeku no Kyojin" ? (
-            <img src={attack} alt={serie} width={80} />
+            <img src={attack} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Toy Story" ? (
-            <img src={toyStory} alt={serie} width={80} />
+            <img src={toyStory} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Coco" ? (
-            <img src={coco} alt={serie} width={80} />
+            <img src={coco} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Mary Poppins" ? (
-            <img src={maryPoppins} alt={serie} width={80} />
+            <img src={maryPoppins} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Dr Slump" ? (
-            <img src={drSlumpp} alt={serie} width={80} />
+            <img src={drSlumpp} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Pokémon" ? (
-            <img src={pokemon} alt={serie} width={80} />
+            <img src={pokemon} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Dragon Ball" ? (
-            <img src={dragonBall} alt={serie} width={80} />
+            <img src={dragonBall} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Kimetsu no Yaiba" ? (
-            <img src={kimetsunoyaiba} alt={serie} width={80} />
+            <img src={kimetsunoyaiba} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Mighty Morphin Power Rangers" ? (
-            <img src={powerRangers} alt={serie} width={80} />
+            <img src={powerRangers} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Ranma" ? (
-            <img src={ranma} alt={serie} width={80} />
+            <img src={ranma} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Futurama" ? (
-            <img src={futurama} alt={serie} width={80} />
+            <img src={futurama} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "PowerPuff Girls" ? (
-            <img src={powerfuffGirls} alt={serie} width={80} />
+            <img src={powerfuffGirls} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Super Mario" ? (
-            <img src={superMario} alt={serie} width={80} />
+            <img src={superMario} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Studio Ghibli" ? (
-            <img src={ghibli} alt={serie} width={80} />
+            <img src={ghibli} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Kingdom Hearts" ? (
-            <img src={kindomHearts} alt={serie} width={80} />
+            <img src={kindomHearts} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Legend of Zelda" ? (
-            <img src={zelda} alt={serie} width={80} />
+            <img src={zelda} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Nightmare before Christmas" ? (
-            <img src={nightmareBeforeChristmas} alt={serie} width={80} />
+            <img src={nightmareBeforeChristmas} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Street Fighter II" ? (
-            <img src={streetFighter} alt={serie} width={80} />
+            <img src={streetFighter} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Asterix" ? (
-            <img src={asterix} alt={serie} width={80} />
+            <img src={asterix} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Tintin" ? (
-            <img src={tintin} alt={serie} width={80} />
+            <img src={tintin} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Evangelion" ? (
-            <img src={evangelion} alt={serie} width={80} />
+            <img src={evangelion} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Urusei Yatsura" ? (
-            <img src={urutseiYatsura} alt={serie} width={80} />
+            <img src={urutseiYatsura} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Fullmetal Alchemist" ? (
-            <img src={fullmetal} alt={serie} width={80} />
+            <img src={fullmetal} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Sailor Moon" ? (
-            <img src={sailorMoon} alt={serie} width={80} />
+            <img src={sailorMoon} alt={serie} width={serie === '' ? 80 : 200} />
 
           ) : (
             <span>{serie}</span>
+            
           )}
         </button>
+        </Carousel.Item>
       ))}
-    </div>
+      
+    </Carousel>
   );
 }
 
