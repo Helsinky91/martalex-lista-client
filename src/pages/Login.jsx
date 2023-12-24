@@ -85,7 +85,7 @@ function Login() {
         />
         <br />
         <br />
-        <button type="submit">Entra</button>
+        <button className="btn" type="submit">Entra</button>
         {errorMessage !== "" && <p className='error-message'>{errorMessage}</p>}
 
 

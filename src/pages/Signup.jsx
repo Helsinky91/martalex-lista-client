@@ -109,7 +109,7 @@ function Signup() {
 
         <br />
         <br />
-        <button className="btn-yellow" type="submit">Regístrate</button>
+        <button className="btn-yellow btn" type="submit">Regístrate</button>
 
         {errorMessage !== "" && <p>{errorMessage}</p>}
 

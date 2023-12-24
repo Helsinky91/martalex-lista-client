@@ -79,8 +79,7 @@ function CosplayList() {
                     <h4>Lista de Cosplays disponibles</h4>
                 </div>
                 <div>
-                    {/* <button onShowAll={showAllCosplays}>Todos Cosplays</button> */}
-                    <button onClick={showAllCosplays}>Show All Cosplays</button>
+                    <button className="btn btn-blue" onClick={showAllCosplays}>Ver todos los Cosplays</button>
                 </div>
             </div>
             <div className="carrousel">
@@ -99,7 +98,7 @@ function CosplayList() {
                             <div key={eachCosplay._id} className="shadow-lg p-3 mb-5 bg-body rounded cosplayCard">
 
                                 <Link to={`/cosplay/${eachCosplay._id}/details`}>
-                                    <img src={eachCosplay.image} alt={eachCosplay.name}  height={200} />
+                                    <img src={eachCosplay.image} alt={eachCosplay.name}  height={300} />
                                     <p>{eachCosplay.name}</p>
                                     <p>{eachCosplay.nameDetails}</p>
                                 </Link>
