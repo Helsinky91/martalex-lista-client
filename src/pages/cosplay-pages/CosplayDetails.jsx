@@ -75,9 +75,9 @@ function CosplayDetails() {
                         
                     <ul>                     
                         
-                        {!details.descriptionCat ? '' : <li><a href={details.descriptionCat} target="_blank" rel="noopener noreferrer">Detalls del cosplay (CAT) </a></li> }
-                        <li><a href={details.descriptionEsp} target="_blank" rel="noopener noreferrer">Detalles del cosplay (ESP) </a></li>
-                        <li><a href={details.cosplayImage} target="_blank" rel="noopener noreferrer">Cosplay Img</a></li>
+                        {!details.descriptionCat ? '' : <li><a href={details.descriptionCat} target="_blank" rel="noopener noreferrer">Personatge (català) </a></li> }
+                        <li><a href={details.descriptionEsp} target="_blank" rel="noopener noreferrer">Personatge (castellà) </a></li>
+                        <li><a href={details.cosplayImage} target="_blank" rel="noopener noreferrer">Imagen del Cosplay</a></li>
 
                     </ul>
                     <button className="btn"><a href={details.youtubeLink} target="_blank" rel="noopener noreferrer">Buscar en Youtube</a></button>

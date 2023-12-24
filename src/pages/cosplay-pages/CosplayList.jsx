@@ -86,7 +86,6 @@ function CosplayList() {
                 <SerieFilter
                     series={list.map((cosplay) => cosplay.serie)}
                     onFilter={filterBySeries}
-                    // onShowAll={showAllCosplays}
                 />
             </div>
 

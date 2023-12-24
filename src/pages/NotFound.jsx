@@ -1,15 +1,17 @@
 import React from "react";
+import { Link } from 'react-router-dom'
+
 
 function NotFound() {
 
-    return (
-        <div>
+    return (     
+        <div className="not-found-page">
+        
+            {/* <h2>Page not found</h2> */}
+            <Link to={"/"}>HOME</Link>
 
-        <p>Page not found</p>
-        <iframe src="https://giphy.com/embed/3o7aTskHEUdgCQAXde" width="600" height="404" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         </div>
     )
-
 
 };
 
