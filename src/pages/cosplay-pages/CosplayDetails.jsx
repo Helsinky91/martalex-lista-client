@@ -87,11 +87,10 @@ function CosplayDetails() {
                     <br />
 
 
-                    {/* {details.choosedBy  
+                    {details.choosedBy  
                         ? <button className="choose-btn btn" onClick={unChooseCosplay}>Liberar Cosplay</button>
-                        // ? <h1> Ya tienes cosplay!!</h1>
                         : <button className="choose-btn btn" onClick={chooseCosplay}>Elegir Cosplay</button>
-                    } */}
+                    }
 
                 </div>
             </div>
