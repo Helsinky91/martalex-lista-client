@@ -62,24 +62,26 @@ h1, h2, h3, h4, h5 {
 
 .nav-active button {
   background-color:#F2CD36;
-
-  padding: 10px;
+  padding: 7px;
   font-family: 'VT323', monospace;
   font-size: 20px;
+  border-radius: 1vh; 
 }
 
 .nav-inactive button {
   background-color:#c9a92b;
-  padding: 8px;
+  padding: 5px;
   font-family: 'VT323', monospace;
   font-size: 20px;
+  border-radius: 1vh; 
 
 }
 .nav-logout button {
   background-color:#E94B50;
-  padding: 8px;
+  padding: 5px;
   font-family: 'VT323', monospace;
   font-size: 20px;
+  border-radius: 1vh; 
 }
 
 
