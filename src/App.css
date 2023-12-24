@@ -84,7 +84,6 @@ h1, h2, h3, h4, h5 {
   border-radius: 1vh; 
 }
 
-
 .dashboard{
   display: flex;
   justify-content: space-evenly;
@@ -111,20 +110,6 @@ h1, h2, h3, h4, h5 {
   width: 50%;
 }
 
-@media (max-width: 768px) {
-  .dashboard {
-    flex-direction: column; /* Stack elements vertically on smaller screens */
-  }
-  .main-text {
-    width: 100%; /* Full width on smaller screens */
-  }
-  .app-logo {
-    width: 100%;
-  }
-  /* .buscadores {
-    flex-direction: column;
-  } */
-}
 .toggle-lang > a {
   color:#137AA5
 }
@@ -340,3 +325,28 @@ h1, h2, h3, h4, h5 {
 
 
 
+
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+  }
+  .main-text {
+    width: 100%; /* Full width on smaller screens */
+  }
+  .app-logo {
+    width: 100%;
+  }
+  .auth-page {
+    /* width: 100%; */
+    margin-left: 0%;
+    margin-right: 0%
+  }
+  .registr-form {
+    /* width: 100%; */
+    margin-left: 0%;
+    margin-right: 0%
+  }
+  /* .buscadores {
+    flex-direction: column;
+  } */
+}
