@@ -61,7 +61,7 @@ function MyProfile() {
           <p>Alergias: {myProfile.alergies}</p>
           <p>Vienes a la boda? <b>{myProfile.attendance}</b></p>
         <br />
-          {myProfile.cosplayId.length === 0 ? (
+          {myProfile.cosplayId === undefined || myProfile.cosplayId === null ? (
             <button className="btn-yellow btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
 
           ) : (
