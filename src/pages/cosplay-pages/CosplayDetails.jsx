@@ -70,22 +70,30 @@ function CosplayDetails() {
                     <img src={details.image} height="450" max-width="200" alt={details.name} />
                 </div>
                 <div className="cosplay-details">
-                        {!details.nameDetails ? '' : <h3><u>Info adicional</u>: {details.nameDetails}</h3> }
+                        {!details.nameDetails ? '' : <h4><u>Info adicional</u>: {details.nameDetails}</h4> }
                         <h4><u>Peli o serie</u>: {details.serie}</h4>
                         {!details.serieDetails ? '' : <h5><u>Título alternativo</u>: {details.serieDetails}</h5> }
                         <br />
-                    <ul className="cosplay-det-list">                     
+                    {/* <ul className="cosplay-det-list">                     
                         {!details.descriptionCat ? '' : <li><a href={details.descriptionCat} target="_blank" rel="noopener noreferrer">Detalls del personatge (català) </a></li> }
                         <li><a href={details.descriptionEsp} target="_blank" rel="noopener noreferrer">Detalles del personaje (castellano) </a></li>
                         <li><a href={details.cosplayImage} target="_blank" rel="noopener noreferrer">Imagen del Cosplay</a></li>
-                    </ul>
-                    <button className="btn-blue btn"><a href={details.youtubeLink} target="_blank" rel="noopener noreferrer">Buscar en Youtube</a></button>
-                    <br />
-                    <br />
-                    <button className="btn-blue btn"><a href={details.aliExpressLink} target="_blank" rel="noopener noreferrer">Buscar en Aliexpress</a></button>                   
-                    <br />
-                    <br />
+                    </ul> */}
 
+                    {!details.descriptionCat ? '' : <button className="btn-yellow btn"><a href={details.descriptionCat} target="_blank" rel="noopener noreferrer">Detalls del personatge (català) </a></button> }
+                    
+                    <button className="btn-yellow btn"><a href={details.descriptionEsp} target="_blank" rel="noopener noreferrer">Detalles del personaje (castellano) </a></button>
+                    
+                    <button className="btn-yellow btn"><a href={details.cosplayImage} target="_blank" rel="noopener noreferrer">Imagen del Cosplay</a></button>
+                    
+                    <br />
+                    <br />
+                    <section className="home-buttons">
+                        <button className="btn-blue btn"><a href={details.youtubeLink} target="_blank" rel="noopener noreferrer">Buscar en Youtube</a></button>
+
+                        <button className="btn-blue btn"><a href={details.aliExpressLink} target="_blank" rel="noopener noreferrer">Buscar en Aliexpress</a></button>                   
+                   </section>
+                    <br />
 
                     {/* {details.choosedBy  
                         ? <button className="choose-btn btn" onClick={unChooseCosplay}>Liberar Cosplay</button>

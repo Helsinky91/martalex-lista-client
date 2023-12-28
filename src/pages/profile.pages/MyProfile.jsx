@@ -47,29 +47,30 @@ function MyProfile() {
 
   return (
     <div className='profile-page'>
-<br />
+
       {myProfile.role === "admin" || myProfile.role === "limited" ? (
           <Link to="/profile/list">
           <button className='btn-blue btn' >Lista invitados </button></Link>
       ) : (<p></p>)}
       
 
-      <div className="" >
+      <div className="my-profile" >
         <div className="">
           <h1>Hola {myProfile.name}! </h1>
-          <br />
           <p>Alergias: {myProfile.alergies}</p>
           <p>Vienes a la boda? <b>{myProfile.attendance}</b></p>
-        <br />
+      
+        
           {myProfile.cosplayId === undefined || myProfile.cosplayId === null ? (
             <button className="btn-yellow btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
 
           ) : (
-            <div>
+            <div className="cosplay-profile-info">
               {myProfile.cosplayId.map((cosplay) => (  
                   <Link to={`/cosplay/${cosplay._id}/details`}>
                     <h2>{cosplay.name}</h2>
-                    <img src={cosplay.image} width="200" alt={cosplay.name} />
+                    <img src={cosplay.image} height={300} alt={cosplay.name} />
+                    <p>Clica en la foto para obtener toda la info del cosplay</p>
                   </Link>
               ))}
             </div>

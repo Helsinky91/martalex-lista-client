@@ -122,7 +122,9 @@ h1, h2, h3, h4, h5 {
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
-
+.home-buttons button {
+  margin-bottom: 8px; /* You can adjust the value based on your preference */
+}
 .btn-home{
   /* display: flex; */
   gap: 10px;
@@ -257,6 +259,11 @@ h1, h2, h3, h4, h5 {
   max-width: 450px;
 }
 
+.cosplay-details button {
+  margin-bottom: 8px; /* You can adjust the value based on your preference */
+  
+}
+
 .cosplay-det-list{
   list-style-type: none;
  /* color:#c9a92b */
@@ -289,8 +296,19 @@ h1, h2, h3, h4, h5 {
 
 .profile-page, .profile-list{
   color: white;
+  margin-top: 1%;
 }
+/* .my-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
 
+.cosplay-profile-info{
+  background-color: #137AA5;
+  margin-left: 40%;
+  margin-right: 40%;
+}
 .footer {
   background-color: rgba(128, 128, 128, 0.404);
 }
@@ -374,5 +392,13 @@ h1, h2, h3, h4, h5 {
     gap: 0%;
   }
 
+  .home-buttons{
+    margin-bottom: 2%;
+  }
+  .cosplay-profile-info{
+    background-color: #137AA5;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
  
 }
