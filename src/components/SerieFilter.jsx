@@ -95,11 +95,12 @@ function SerieFilter(props) {
             <img src={evangelion} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Urusei Yatsura" ? (
             <img src={urutseiYatsura} alt={serie} width={serie === '' ? 80 : 200} />
-          ) : serie === "Fullmetal Alchemist" ? (
+          ) : serie === "Fullmetal Alchemist: Brotherhood" ? (
             <img src={fullmetal} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Sailor Moon" ? (
             <img src={sailorMoon} alt={serie} width={serie === '' ? 80 : 200} />
-
+            ) : serie === "Cardcaptor Sakura" ? (
+              <img src={placeholderImg} alt={serie} width={serie === '' ? 80 : 200} />
           ) : (
             <span>{serie}</span>
             
