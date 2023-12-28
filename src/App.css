@@ -230,9 +230,14 @@ h1, h2, h3, h4, h5 {
   color: black;
   margin: 2vh;
   /* background-color: #137AA5; */
+   /* Set the maximum width for the cosplay card */
+  
 }
 .cosplayCard > a {
   color: black;
+}
+.cosplayCard  img {
+  max-width: 400px;
 }
 
 .details-name{
@@ -340,13 +345,34 @@ h1, h2, h3, h4, h5 {
     /* width: 100%; */
     margin-left: 0%;
     margin-right: 0%
+    
   }
   .registr-form {
     /* width: 100%; */
     margin-left: 0%;
     margin-right: 0%
+    
   }
   /* .buscadores {
     flex-direction: column;
   } */
+  
+  .cosplayBoxCard img{
+    max-width: 300px; 
+    
+  }
+  .cosplay-info img{
+    margin: 0 auto;
+    max-width: 300px;
+    height: 300px;
+  }
+
+   .cosplay-details, .cosplay-det-list {
+    margin: 0 auto;
+    max-width: 300px;
+    flex: 1 0 200px;
+    gap: 0%;
+  }
+
+ 
 }

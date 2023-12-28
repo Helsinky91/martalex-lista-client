@@ -67,7 +67,7 @@ function CosplayDetails() {
             <br />
             <div className="cosplay-info">
                 <div>
-                    <img src={details.image} width="300" alt={details.name} />
+                    <img src={details.image} height="450" max-width="200" alt={details.name} />
                 </div>
                 <div className="cosplay-details">
                         {!details.nameDetails ? '' : <h3><u>Info adicional</u>: {details.nameDetails}</h3> }

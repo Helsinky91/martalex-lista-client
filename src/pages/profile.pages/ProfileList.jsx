@@ -39,13 +39,13 @@ function ProfileList() {
                         {myProfile.role === "admin" ? (
                             <div>
                                 {/* <p>Cosplay Elegido:</p> */}
-                                {!user.cosplayId ? (<p>Ohhh not choosen yet... </p>) : (    //!How to do this? 
+                                {user.cosplayId === undefined || user.cosplayId === null ? (<p>Ohhh not choosen yet... </p>) : (    //!How to do this? 
                                     <div>
                                         <ul>
                                             {user.cosplayId.map((cosplay) => (
                                                 <li key={cosplay._id}>
                                                     <p>{cosplay.name}</p>
-                                                    <img src={cosplay.image} width="150" alt={cosplay.name} />
+                                                    <img src={cosplay.image} height="250" alt={cosplay.name} />
                                                 </li>
                                             ))}
                                         </ul>

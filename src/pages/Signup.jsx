@@ -61,7 +61,7 @@ function Signup() {
 
       <form onSubmit={handleSignup}>
 
-        <label>Nombre:</label>
+        <label>Nombre y apellidos:</label>
         <br />
         <input
           type="text"

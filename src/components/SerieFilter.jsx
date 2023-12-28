@@ -20,7 +20,7 @@ import nightmareBeforeChristmas from "../assets/LogoNightmareBefreChristmas.png"
 import pokemon from "../assets/LogoPokemon.png";
 import powerfuffGirls from "../assets/LogoPowerpuffGirls.png";
 import ranma from "../assets/LogoRanma.png";
-import sailorMoon from "../assets/LogoSailorMoon.png";
+import sailorMoon from "../assets/LogoSailorMoon2.png";
 import starWars from "../assets/LogoStarWars.png";
 import streetFighter from "../assets/LogoStreetFighter.png";
 import ghibli from "../assets/LogoStudioGhibli.png";
