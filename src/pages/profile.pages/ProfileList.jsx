@@ -56,9 +56,12 @@ function ProfileList() {
 
                         {myProfile.role === "limited" ? (
                             <div>
-                                <p><b>Alérgias:</b> {user.alergies} </p>
-                                <p><b>Viene a la boda?</b> {user.attendance} </p>
-                                {user.cosplayId === undefined ? (<p><b>Ha elegido Cosplay? </b>Sí</p>) : (<p><b>Ha elegido Cosplay?</b> No</p>)}
+                                <p>{user.email}</p>
+                                {/* <p className="color">Alérgias: {user.alergies} </p> */}
+                                {user.alergies === "No" || user.alergies === "no" ||user.alergies === "ninguna" ? <p>Alérgias: {user.alergies} </p> : <p className="color">Alérgias: {user.alergies} </p>}
+                                <p>Viene a la boda? {user.attendance} </p>
+                                {/* {user.cosplayId !== "" ? (<p>Ha elegido Cosplay? Sí</p>) : (<p>Ha elegido Cosplay? No</p>)} */}
+                                {user.cosplayId !== null && user.cosplayId?.length > 0 ? (<p>Ha elegido Cosplay? Sí</p> ) : (<p className="red">Ha elegido Cosplay? No</p>)}
                             </div>
                         ) : ('')}
 

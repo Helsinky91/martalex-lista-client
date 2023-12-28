@@ -6,7 +6,7 @@ function Error({status}) {
     <div className="error-page">
        {status === 500 ? (
         <div>
-          <h5>Hubo un error en el servidor, estamos trabajando en ello.</h5>
+          <h5>Hubo un error en el servidor, por favor inténtalo de nuevo más tarde.</h5>
           <Link to={"/"}>HOME</Link>
         </div>
         ) : (

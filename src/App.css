@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #1A2040;
 }
 
 .App {
@@ -21,6 +22,14 @@ h1, h2, h3, h4, h5 {
   color: white;
   font-family: 'Roboto Mono', monospace;
   /* font-size: 36px; */
+}
+
+.red {
+  color:#E94B50
+}
+
+.color {
+  color:#c9a92b
 }
 
 .btn {
@@ -255,8 +264,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .cosplay-details{
-  flex: 1 0 450px; /* Set initial main size to 200px, but allow it to shrink */
-  max-width: 450px;
+  flex: 1 0 600px; /* Set initial main size to 200px, but allow it to shrink */
+  max-width: 650px;
 }
 
 .cosplay-details button {
@@ -278,13 +287,13 @@ h1, h2, h3, h4, h5 {
 
 .choose-btn {
   background-color:#E94B50;
-  padding: 3%;
+  padding: 2%;
   font-size: x-large;
 }
 
 .choose-btn:hover {
   background-color:#bd3c40;
-  padding: 3%;
+  padding: 2%;
   font-size: x-large;
   color: white;
 }
@@ -297,6 +306,10 @@ h1, h2, h3, h4, h5 {
 .profile-page, .profile-list{
   color: white;
   margin-top: 1%;
+}
+
+.profile-list li{
+  list-style-type: none;
 }
 /* .my-profile {
   display: flex;
@@ -333,7 +346,7 @@ h1, h2, h3, h4, h5 {
   min-height: 100vh;
 }
 
-.error-page > h5 {
+.error-page h5 {
   padding-top: 20px;
   color: #E94B50;
 }
@@ -354,7 +367,8 @@ h1, h2, h3, h4, h5 {
 
 @media (max-width: 768px) {
   .dashboard {
-    flex-direction: column; /* Stack elements vertically on smaller screens */
+    flex-direction: column;
+    width: 100%; /* Stack elements vertically on smaller screens */
   }
   .main-text {
     width: 100%; /* Full width on smaller screens */
@@ -391,7 +405,7 @@ h1, h2, h3, h4, h5 {
    .cosplay-details, .cosplay-det-list {
     margin: 0 auto;
     max-width: 300px;
-    flex: 1 0 200px;
+    flex: 1 0 300px;
     gap: 0%;
   }
 
