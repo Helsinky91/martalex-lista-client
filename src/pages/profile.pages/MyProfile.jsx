@@ -4,10 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { getMyProfileService } from '../../services/profile.services';
 // import { getCosplayDetailsService } from '../../services/cosplay.services';
+import Error from '../Error';
 
 
 function MyProfile() {
-
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   //states
@@ -43,6 +44,12 @@ function MyProfile() {
       </div>
     )
   }
+
+  
+    //if error pass the error status
+    if (error) {
+      return <Error status={error} />;
+    }
 
 
   return (

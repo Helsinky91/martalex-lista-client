@@ -2,9 +2,11 @@ import React from 'react'
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { signupService } from '../services/auth.services';
+import Error from "./Error";
+
 
 function Signup() {
-
+  const [error, setError] = useState(null);
   //config useNavigate()
   const navigate = useNavigate()
 
@@ -53,6 +55,11 @@ function Signup() {
       }
     }
   };
+  
+  //if error pass the error status
+  if (error) {
+    return <Error status={error} />;
+  }
 
   return (
     <div className="registr-form">

@@ -5,7 +5,7 @@ import SerieFilter from '../../components/SerieFilter';
 import SearchCosplay from '../../components/SearchCosplay';
 import { getCosplayListServices } from '../../services/cosplay.services';
 import PacmanLoader from "react-spinners/PacmanLoader";
-
+import Error from '../Error';
 
 function CosplayList() {
 
@@ -13,6 +13,7 @@ function CosplayList() {
     const [cosplayListToShow, setCosplayListToShow] = useState([]);
     const [selectedSeries, setSelectedSeries] = useState(null);
     const [isFetching, setIsFetching] = useState(true);
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -67,6 +68,12 @@ function CosplayList() {
             </div>
         )
     }
+
+    //if error pass the error status
+    if (error) {
+        return <Error status={error} />;
+      }
+    
 
     return (
         <div>

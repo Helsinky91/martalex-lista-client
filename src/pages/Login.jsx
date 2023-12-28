@@ -3,10 +3,11 @@ import { useState } from "react";
 import { loginService } from '../services/auth.services';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
-
+import Error from "./Error";
 
 function Login() {
 
+  const [error, setError] = useState(null);
   //config el uso de authenticaUser 
   const { authenticaUser } = useContext(AuthContext)
 
@@ -58,6 +59,12 @@ function Login() {
       }
     }
   }
+
+  
+    //if error pass the error status
+    if (error) {
+      return <Error status={error} />;
+    }
  
 
   return (

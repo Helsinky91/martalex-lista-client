@@ -4,6 +4,7 @@ import { getCosplayDetailsService, chooseCosplayService, unChooseCosplayService 
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { getProfileService } from "../../services/profile.services";
 import { AuthContext } from "../../context/auth.context"
+import Error from '../Error';
 
 function CosplayDetails() {
 
@@ -12,6 +13,7 @@ function CosplayDetails() {
     const { user } = useContext(AuthContext)
     const [ details, setDetails] = useState({});
     const [ profile, setProfile ] = useState({})
+    const [error, setError] = useState(null);
     
     const [isFetching, setIsFetching] = useState(true);
 
@@ -60,6 +62,11 @@ function CosplayDetails() {
             </div>
         )
     }
+     
+    //if error pass the error status
+     if (error) {
+        return <Error status={error} />;
+      }
 
     return (
         <div>
