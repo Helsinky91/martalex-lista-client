@@ -67,9 +67,16 @@ function MyProfile() {
           <h1>Hola {myProfile.name}! </h1>
           <p>Alergias: {myProfile.alergies}</p>
           <p>Vienes a la boda? <b>{myProfile.attendance}</b></p>
-          {myProfile.attendance[0] === "No" ? <p>(Solo podrás escoger cosplay si vienes a la boda!)</p> : null}
+          {myProfile.attendance[0] === "No" || myProfile.attendance[0] === "Quizás" ? <p>(Solo podrás escoger cosplay si vienes a la boda!)</p> : null}
       
+          <div className='btn'>
+            <Link to={`/profile/${myProfile._id}/edit`}>
+              <button className="btn-yellow btn">Edit your profile</button>
+            </Link>
+          </div>
+          <br />
         
+
           {myProfile.cosplayId === undefined || myProfile.cosplayId === null || myProfile.cosplayId.length <= 0 ? (
             <button className="btn-yellow btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
 
@@ -86,13 +93,6 @@ function MyProfile() {
           )}
 
 
-
-
-          {/* <div className='btn'>
-            <Link to={`/profile/${myProfile._id}/edit`}>
-              <button className="btn">Edit your profile</button>
-            </Link>
-          </div> */}
 
         </div>
 

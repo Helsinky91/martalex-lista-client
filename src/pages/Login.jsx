@@ -68,8 +68,9 @@ function Login() {
  
 
   return (
+    <div className="login-page">
     <div className="auth-page" >
-
+      
       <h1>Entra</h1>
 
       <form onSubmit={handleLogin}>
@@ -98,6 +99,7 @@ function Login() {
 
       </form>
 
+    </div>
     </div>
   );
 }

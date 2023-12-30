@@ -76,7 +76,7 @@ function CosplayList() {
     
 
     return (
-        <div>
+        <div className= "cosplay-list-page">
             <div className="buscadores">
 
                 <div className="cosplayFormCard">

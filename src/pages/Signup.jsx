@@ -62,6 +62,7 @@ function Signup() {
   }
 
   return (
+    <div className="signup-page">
     <div className="registr-form">
 
       <h1 className="home-info">Regístrate</h1>
@@ -125,6 +126,7 @@ function Signup() {
 
       </form>
 
+    </div>
     </div>
   );
 }

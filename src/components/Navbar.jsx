@@ -49,11 +49,11 @@ function Navbar() {
           
 
           <NavLink to="/profile/my-profile" className={assignClassName}>
-            <button >Mi Perfil</button>
+            <button >Perfil</button>
           </NavLink>
 
           <span className="nav-logout">
-            <button onClick={handleLogout}>Cerrar Sesión</button>
+            <button onClick={handleLogout}>Salir</button>
           </span>
         </div>
 

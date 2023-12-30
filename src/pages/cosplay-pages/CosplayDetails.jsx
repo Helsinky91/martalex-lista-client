@@ -78,7 +78,7 @@ function CosplayDetails() {
 
     // console.log("isCosplayChosen:", isCosplayChosen);
     return (
-        <div>
+        <div className="cosplay-details-page">
             <h1 className="details-name">{details.name}</h1>
             <br />
             <div className="cosplay-info">
@@ -115,8 +115,8 @@ function CosplayDetails() {
                     <br />
 
 
-{/*                                         
-                    {profile.attendance[0] === 'No' || profile.attendance[0] === 'Quizás'  ? null : (
+                                        
+                    {/* {profile.attendance[0] === 'No' || profile.attendance[0] === 'Quizás'  ? null : (
                         isCosplayChosen ? (
                             <button className="choose-btn btn" onClick={unChooseCosplay}>Liberar Cosplay</button>
                         ) : profile.cosplayId.length === 0 ? (

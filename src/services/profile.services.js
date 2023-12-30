@@ -17,10 +17,20 @@ const getProfileService = (id) => {
     return service.get(`/profile/${id}/details`)
 }
 
+//edit profile
+const editProfileService = (userId, profileChanges) => {
+    return service.patch(`/profile/${userId}/edit`, profileChanges)
+}
 
+
+const attendanceProfileService = () => {
+    return service.get("/profile/attendance")
+}
 
 export {
     getMyProfileService,
     getProfilesListService,
     getProfileService,
+    editProfileService,
+    attendanceProfileService
 }
