@@ -1,7 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import SerieFilter from '../../components/SerieFilter';
+import SerieFilter from '../../components/SerieFilterCarousel';
+import SerieFilterCarousel from '../../components/SerieFilterCarousel';
 import SearchCosplay from '../../components/SearchCosplay';
 import { getCosplayListServices } from '../../services/cosplay.services';
 import PacmanLoader from "react-spinners/PacmanLoader";
@@ -60,6 +61,18 @@ function CosplayList() {
         setSelectedSeries(null);
     };
 
+    const getAvailableSeries = () => {
+        const availableSeries = list.reduce((acc, cosplay) => {
+            if (cosplay.choosedBy === undefined || cosplay.choosedBy === null) {
+                acc.add(cosplay.serie);
+            }
+            return acc;
+        }, new Set());
+        return Array.from(availableSeries);
+    };
+
+
+
     //if content is not loading, show spinner
     if (isFetching === true) {
         return (
@@ -77,7 +90,7 @@ function CosplayList() {
 
     return (
         <div className= "cosplay-list-page">
-            <div className="buscadores">
+            {/* <div className="buscadores">
 
                 <div className="cosplayFormCard">
                     <SearchCosplay filterList={filterList} />
@@ -88,14 +101,26 @@ function CosplayList() {
                 <div>
                     <button className="btn btn-blue" onClick={showAllCosplays}>Ver todos los Cosplays</button>
                 </div>
-            </div>
+            </div> */}
+            <div>
+                    <h2>Lista de Cosplays disponibles</h2>
+                </div>
+                <br />
+             <div>
+                    <button className="btn btn-blue" onClick={showAllCosplays}>Ver todos los Cosplays</button>
+                </div>
+                <br />
             <div className="carrousel">
-                <SerieFilter
-                    series={list.map((cosplay) => cosplay.serie)}
+                
+                <SerieFilterCarousel
+                    series={getAvailableSeries()}
                     onFilter={filterBySeries}
                 />
             </div>
-
+<br />
+<div className="cosplayFormCard">
+                    <SearchCosplay filterList={filterList} />
+                </div>
 
             <div className="cosplayBoxCard">
                 {cosplayListToShow.map((eachCosplay) => {
@@ -114,6 +139,14 @@ function CosplayList() {
                     } return null
                 })}
             </div>
+            {/* <div>
+                <SerieFilter
+                    // series={list.map((cosplay) => cosplay.serie)}
+                    series={getAvailableSeries()}
+
+                    onFilter={filterBySeries}
+                />
+            </div> */}
         </div>
     )
 };

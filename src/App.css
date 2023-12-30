@@ -33,6 +33,10 @@ h1, h2, h3, h4, h5 {
   color:#c9a92b
 }
 
+.white {
+  color: white
+}
+
 .btn {
   font-family: 'Roboto Mono', monospace;
   -webkit-text-stroke: 0.5px black; 

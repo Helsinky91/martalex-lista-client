@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from "../../context/auth.context";
 
-import { getProfileService, editProfileService, attendanceProfileService } from '../../services/profile.services';
+import { getProfileService, editProfileService, attendanceProfileService, updatePasswordService } from '../../services/profile.services';
 import PacmanLoader from "react-spinners/PacmanLoader";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
@@ -120,14 +120,13 @@ function ProfileEdit() {
                     <input type="email" name="email" value={emailInput} onChange={handleEmailChange} />
                     <br />
                     <br />
-                    <label>Asistencia: </label>
 
-                    <select name="attendance" multiple onChange={handleAttendanceChange} >
-                        {allAttendance.map((eachEl, index) => {
-                            return (
-                                <option selected={attendanceInput.includes(eachEl) ? true : false} key={index} value={eachEl}>{eachEl}</option>
-                            )
-                        })}
+                    <label>Asistencia: </label>
+                    <select name="attendance" value={attendanceInput} onChange={handleAttendanceChange}>
+                        <option value="">Selecciona</option>
+                        <option value="Sí">Sí</option>
+                        <option value="No">No</option>
+                        <option value="Quizás">Quizás</option>
                     </select>
                     <br />
 

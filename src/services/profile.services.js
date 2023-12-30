@@ -27,10 +27,15 @@ const attendanceProfileService = () => {
     return service.get("/profile/attendance")
 }
 
+const updatePasswordService = (userId, newPassword) => {
+    return service.patch(`/profile/${userId}/password`, { password: newPassword });
+  };
+
 export {
     getMyProfileService,
     getProfilesListService,
     getProfileService,
     editProfileService,
-    attendanceProfileService
+    attendanceProfileService,
+    updatePasswordService
 }
