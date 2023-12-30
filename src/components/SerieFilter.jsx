@@ -29,6 +29,8 @@ import tintin from "../assets/LogoTintin.png";
 import toyStory from "../assets/LogoToyStory.png";
 import urutseiYatsura from "../assets/LogoUrutseiYatsura.png";
 import zelda from "../assets/LogoZelda.png";
+import sakura from "../assets/LogoSakura.png";
+
 
 function SerieFilter(props) {
   const { series, onFilter } = props;
@@ -95,12 +97,12 @@ function SerieFilter(props) {
             <img src={evangelion} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Urusei Yatsura" ? (
             <img src={urutseiYatsura} alt={serie} width={serie === '' ? 80 : 200} />
-          ) : serie === "Fullmetal Alchemist: Brotherhood" ? (
+          ) : serie === "Fullmetal-Alchemist: Brotherhood" ? (
             <img src={fullmetal} alt={serie} width={serie === '' ? 80 : 200} />
           ) : serie === "Sailor Moon" ? (
             <img src={sailorMoon} alt={serie} width={serie === '' ? 80 : 200} />
             ) : serie === "Cardcaptor Sakura" ? (
-              <img src={placeholderImg} alt={serie} width={serie === '' ? 80 : 200} />
+              <img src={sakura} alt={serie} width={serie === '' ? 80 : 200} />
           ) : (
             <span>{serie}</span>
             

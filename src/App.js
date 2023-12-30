@@ -13,6 +13,7 @@ import ProfileList from './pages/profile.pages/ProfileList';
 import MyProfile from './pages/profile.pages/MyProfile';
 import NotFound from './pages/NotFound';
 import Error from './pages/Error';
+import ProfileEdit from './pages/profile.pages/ProfileEdit';
 
 function App() {
   return (
@@ -31,9 +32,8 @@ function App() {
           <Route path='/cosplay/cosplay-list' element={<IsPrivate><CosplayList /></IsPrivate>}/>
           <Route path='/cosplay/:cosplayId/details' element={<IsPrivate><CosplayDetails /></IsPrivate>}/>
           <Route path='/profile/my-profile' element={<IsPrivate> <MyProfile /> </IsPrivate>} />
-
-          {/* AQUÍ FALTA LIMITAR SI ADMIN USER? O VA EN LA RUTA DIRECTAMENTE? */}
           <Route path='/profile/list' element={<IsPrivate> <ProfileList /> </IsPrivate>} />
+          <Route path='/profile/:userId/edit' element={<IsPrivate> <ProfileEdit /> </IsPrivate>} />
           
           {/* errors page*/}
           <Route path='/error' element={<Error />} />

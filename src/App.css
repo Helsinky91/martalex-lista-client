@@ -120,8 +120,17 @@ h1, h2, h3, h4, h5 {
 }
 
 .toggle-lang > a {
-  color:#137AA5
+  color:#137AA5;
+  
 }
+
+/* .toggle-lang > a {
+  color: white;
+  background-color: #3F417C;
+  padding: 1%;
+  border-radius: 8px;
+} */
+
 .home-list{
   text-align: left;
   /* list-style-type: none */

@@ -97,7 +97,7 @@ function CosplayList() {
             </div>
 
 
-            <div class="cosplayBoxCard">
+            <div className="cosplayBoxCard">
                 {cosplayListToShow.map((eachCosplay) => {
                     if (eachCosplay.choosedBy === undefined || eachCosplay.choosedBy === null) {
                         return (
