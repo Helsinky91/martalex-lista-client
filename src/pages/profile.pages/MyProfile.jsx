@@ -75,11 +75,14 @@ function MyProfile() {
             </Link>
           </div>
           <br />
+          <br />
         
 
           {myProfile.cosplayId === undefined || myProfile.cosplayId === null || myProfile.cosplayId.length <= 0 ? (
-            <button className="btn-yellow btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
-
+            <div>
+              <h2 className="red">¡Os comunicaremos con antelación cuando se abra la lista para escoger Cosplay!</h2>
+              <button className="btn-yellow btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
+            </div>
           ) : (
             <div className="cosplay-profile-info">
               {myProfile.cosplayId.map((cosplay) => (  
