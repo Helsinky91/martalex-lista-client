@@ -71,7 +71,7 @@ function MyProfile() {
       
           <div className='btn'>
             <Link to={`/profile/${myProfile._id}/edit`}>
-              <button className="btn-yellow btn">Edit your profile</button>
+              <button className="btn-yellow btn">Edita tu perfil</button>
             </Link>
           </div>
           <br />

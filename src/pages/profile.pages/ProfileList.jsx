@@ -38,6 +38,7 @@ function ProfileList() {
 
                         {myProfile.role === "admin" ? (
                             <div>
+                                {user.attendance[0] === "Quizás" || user.attendance[0] === "No" ? (<p className="red">Viene a la boda? {user.attendance}</p>) : (<p>Viene a la boda? {user.attendance} </p>) }
                                 {/* <p>Cosplay Elegido:</p> */}
                                 {user.cosplayId === undefined || user.cosplayId === null ? (<p>Ohhh not choosen yet... </p>) : (    //!How to do this? 
                                     <div>
@@ -58,7 +59,7 @@ function ProfileList() {
                             <div>
                                 <p>{user.email}</p>
                                 {/* <p className="color">Alérgias: {user.alergies} </p> */}
-                                {user.alergies === "No" || user.alergies === "no" ||user.alergies === "ninguna" ? <p>Alérgias: {user.alergies} </p> : <p className="color">Alérgias: {user.alergies} </p>}
+                                {user.alergies === "No" || user.alergies === "no" ||user.alergies === "ninguna" ? <p>Alergias: {user.alergies} </p> : <p className="color">Alérgias: {user.alergies} </p>}
                                 {user.attendance[0] === "Quizás" || user.attendance[0] === "No" ? (<p className="red">Viene a la boda? {user.attendance}</p>) : (<p>Viene a la boda? {user.attendance} </p>) }
                                 {/* {user.cosplayId !== "" ? (<p>Ha elegido Cosplay? Sí</p>) : (<p>Ha elegido Cosplay? No</p>)} */}
                                 {user.cosplayId !== null && user.cosplayId?.length > 0 ? (<p>Ha elegido Cosplay? Sí</p> ) : (<p className="red">Ha elegido Cosplay? No</p>)}
