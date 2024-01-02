@@ -50,7 +50,7 @@ function Home() {
             </ul>
             <p>
               La prioritat en el calçat és que sigui còmode: feu tot el possible per a que s'assembli al calçat original i eviteu que us hagin de tallar els peus de matinada.
-              Per últim, un consell: els accessoris ajuden a caracteritzar-se (lentilles, armes, objectes característics...).
+              Per últim, un consell: els accessoris ajuden a caracteritzar-se (lentilles, armes, cabell tenyit, objectes característics...).
             </p>
           </section>
         ) : (
@@ -76,7 +76,7 @@ function Home() {
             </ul>
             <p>
               La prioridad en el calzado es que sea cómodo: haced todo lo posible para que se asemeje al calzado original y evitad que tengan que cortaros los pies de madrugada.
-              Por último, un consejo: los accessorios ayudan a caracterizarse (lentillas, armas, objetos característicos...).
+              Por último, un consejo: los accessorios ayudan a caracterizarse (lentillas, armas, pelo teñido, objetos característicos...).
             </p>
           </section>
         )}

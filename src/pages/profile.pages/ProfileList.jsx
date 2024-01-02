@@ -1,3 +1,4 @@
+import SearchUser from '../../components/SearchUser';
 import { getMyProfileService, getProfilesListService } from '../../services/profile.services';
 import React, { useState, useEffect } from 'react';
 
@@ -5,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 function ProfileList() {
     const [profileList, setProfileList] = useState([]);
     const [myProfile, setMyProfile] = useState([])
+    const [profileListToShow, setProfileListToShow] = useState([]);
 
 
     useEffect(() => {
@@ -25,12 +27,25 @@ function ProfileList() {
         fetchData();
     }, []);
 
+    const filterList = (filterQuery) => {
+        const filterArr = profileList.filter((eachEl) => {
+            return (eachEl.name.includes(filterQuery)
+                || eachEl.name.toLowerCase().includes(filterQuery)
+                || eachEl.name.includes(filterQuery.toLowerCase())
+                
+            )
+        })
+        setProfileListToShow(filterArr)
+    }
+
+
 
     //if user === limited > Show user info + attendance + alergies ALSO
     //if user === limited && cosplay !== null > show "cosplay escogido"        
     return (
         <div className="profile-list">
             <h1>Lista Invitados</h1>
+            {/* <SearchUser filterList={filterList} /> */}
             <ul>
                 {profileList.map((user) => (
                     <li key={user._id}>
