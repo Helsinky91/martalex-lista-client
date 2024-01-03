@@ -116,13 +116,13 @@ function CosplayDetails() {
 
 
                                         
-                    {profile.attendance[0] === 'No' || profile.attendance[0] === 'Quizás'  ? null : (
+                    {/* {profile.attendance[0] === 'No' || profile.attendance[0] === 'Quizás'  ? null : (
                         isCosplayChosen ? (
                             <button className="choose-btn btn" onClick={unChooseCosplay}>Liberar Cosplay</button>
                         ) : profile.cosplayId.length === 0 ? (
                             <button className="choose-btn btn" onClick={chooseCosplay}>Elegir Cosplay</button>
                         ) : null
-                    )}
+                    )} */}
 
 
                 </div>
