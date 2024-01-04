@@ -50,7 +50,7 @@ function CosplayList() {
 
     const filterBySeries = (series) => {
         const filteredCosplays = list.filter(
-            (cosplay) => cosplay.serie === series && cosplay.choosedBy === undefined
+            (cosplay) => cosplay.serie === series && (cosplay.choosedBy === undefined || cosplay.choosedBy === null)
         );
         setCosplayListToShow(filteredCosplays);
         setSelectedSeries(series);
@@ -64,6 +64,8 @@ function CosplayList() {
     const getAvailableSeries = () => {
         const availableSeries = list.reduce((acc, cosplay) => {
             if (cosplay.choosedBy === undefined || cosplay.choosedBy === null) {
+            // if (cosplay.choosedBy === undefined) {
+                // console.log("choosedBy:", cosplay.choosedBy);
                 acc.add(cosplay.serie);
             }
             return acc;
