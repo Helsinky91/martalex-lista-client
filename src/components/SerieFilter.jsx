@@ -35,6 +35,7 @@ import sakura from "../assets/LogoSakura.png";
 function SerieFilter({ series, onFilter }) {
   return (
     <div>
+      <h5>Filtra por serie o película ⬇️</h5>
       
       <div className="serie-filter">
         {series.map((serie) => (

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SerieFilter from '../../components/SerieFilter';
@@ -9,6 +9,9 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 import Error from '../Error';
 
 function CosplayList() {
+
+    //Create a ref for the target section
+    const cosplayBoxRef = useRef();
 
     const [list, setList] = useState([]);
     const [cosplayListToShow, setCosplayListToShow] = useState([]);
@@ -64,7 +67,7 @@ function CosplayList() {
     const getAvailableSeries = () => {
         const availableSeries = list.reduce((acc, cosplay) => {
             if (cosplay.choosedBy === undefined || cosplay.choosedBy === null) {
-            // if (cosplay.choosedBy === undefined) {
+                // if (cosplay.choosedBy === undefined) {
                 // console.log("choosedBy:", cosplay.choosedBy);
                 acc.add(cosplay.serie);
             }
@@ -73,6 +76,14 @@ function CosplayList() {
         return Array.from(availableSeries);
     };
 
+    const scrollToCosplayBox = () => {
+        cosplayBoxRef.current.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const filterBySeriesAndScroll = (series) => {
+        filterBySeries(series);
+        scrollToCosplayBox();
+    };
 
 
     //if content is not loading, show spinner
@@ -87,11 +98,11 @@ function CosplayList() {
     //if error pass the error status
     if (error) {
         return <Error status={error} />;
-      }
-    
+    }
+
 
     return (
-        <div className= "cosplay-list-page">
+        <div className="cosplay-list-page">
             {/* <div className="buscadores">
 
                 <div className="cosplayFormCard">
@@ -105,33 +116,33 @@ function CosplayList() {
                 </div>
             </div> */}
             <div>
-                    <h2>Lista de Cosplays disponibles</h2>
-                </div>
-                <br />
-             <div>
-                    <button className="btn btn-blue" onClick={showAllCosplays}>Ver todos los Cosplays</button>
-                </div>
-                <br />
+                <h2>Lista de Cosplays disponibles</h2>
+            </div>
+            <br />
+            <div>
+                <button className="btn btn-blue" onClick={showAllCosplays}>Ver todos los Cosplays</button>
+            </div>
+            <br />
             <div className="carrousel">
-                
+
                 <SerieFilterCarousel
                     series={getAvailableSeries()}
                     onFilter={filterBySeries}
                 />
             </div>
-<br />
-<div className="cosplayFormCard">
-                    <SearchCosplay filterList={filterList} />
-                </div>
+            <br />
+            <div className="cosplayFormCard">
+                <SearchCosplay filterList={filterList} />
+            </div>
 
-            <div className="cosplayBoxCard">
+            <div className="cosplayBoxCard" ref={cosplayBoxRef}>
                 {cosplayListToShow.map((eachCosplay) => {
                     if (eachCosplay.choosedBy === undefined || eachCosplay.choosedBy === null) {
                         return (
                             <div key={eachCosplay._id} className="shadow-lg p-3 mb-5 bg-body rounded cosplayCard">
 
                                 <Link to={`/cosplay/${eachCosplay._id}/details`}>
-                                    <img src={eachCosplay.image} alt={eachCosplay.name}  height={300} />
+                                    <img src={eachCosplay.image} alt={eachCosplay.name} height={300} />
                                     <p>{eachCosplay.name}</p>
                                     <p>{eachCosplay.nameDetails}</p>
                                 </Link>
@@ -145,7 +156,8 @@ function CosplayList() {
                 <SerieFilter
                     // series={list.map((cosplay) => cosplay.serie)}
                     series={getAvailableSeries()}
-                    onFilter={filterBySeries}
+                    onFilter={filterBySeriesAndScroll}
+
                 />
             </div>
         </div>
