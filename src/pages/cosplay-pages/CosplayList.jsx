@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import SerieFilter from '../../components/SerieFilterCarousel';
+import SerieFilter from '../../components/SerieFilter';
 import SerieFilterCarousel from '../../components/SerieFilterCarousel';
 import SearchCosplay from '../../components/SearchCosplay';
 import { getCosplayListServices } from '../../services/cosplay.services';
@@ -141,14 +141,13 @@ function CosplayList() {
                     } return null
                 })}
             </div>
-            {/* <div>
+            <div>
                 <SerieFilter
                     // series={list.map((cosplay) => cosplay.serie)}
                     series={getAvailableSeries()}
-
                     onFilter={filterBySeries}
                 />
-            </div> */}
+            </div>
         </div>
     )
 };
