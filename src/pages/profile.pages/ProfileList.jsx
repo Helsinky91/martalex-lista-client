@@ -9,6 +9,7 @@ function ProfileList() {
     const [myProfile, setMyProfile] = useState([])
     const [profileListToShow, setProfileListToShow] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
+    const [isSorted, setIsSorted] = useState(false); // Toggle state for sorting
 
     useEffect(() => {
         // Fetch the profile list when the component mounts
@@ -40,6 +41,15 @@ function ProfileList() {
         setProfileListToShow(filterArr)
     }
       
+    const sortByCreationTime = () => {
+        // Toggle between sorted and original order
+        const sortedList = isSorted
+            ? [...profileListToShow].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+            : [...profileListToShow].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+        setProfileListToShow(sortedList);
+        setIsSorted(!isSorted);
+    };
 
     //if content is not loading, show spinner
     if (isFetching === true) {
@@ -58,6 +68,13 @@ function ProfileList() {
             <div className="cosplayFormCard">
 
             <SearchUser filterList={filterList} />
+                        
+            
+            </div>
+            <div>
+                <br />
+            <button className="btn-yellow btn" onClick={sortByCreationTime}>{isSorted ? "Ordena per primer creat" : "Ordena per últim creat"}</button>
+
             </div>
             <br />
             <ul>

@@ -74,9 +74,7 @@ function CosplayDetails() {
     if (error) {
         return <Error status={error} />;
     }
-    const isCosplayChosen = details.choosedBy && details.choosedBy._id === profile._id;
-
-    // console.log("isCosplayChosen:", isCosplayChosen);
+    
     return (
         <div className="cosplay-details-page">
             <h1 className="details-name">{details.name}</h1>
@@ -115,13 +113,14 @@ function CosplayDetails() {
                     <br />
 
 
-                                        
-                    {/* {profile.attendance[0] === 'No' || profile.attendance[0] === 'Quizás'  ? null : (
-                        isCosplayChosen ? (
-                            <button className="choose-btn btn" onClick={unChooseCosplay}>Liberar Cosplay</button>
-                        ) : profile.cosplayId.length === 0 ? (
+                    {/* {profile.attendance[0] === 'No' || profile.attendance[0] === 'Quizás' ? null : (
+                        !details.choosedBy ? (
                             <button className="choose-btn btn" onClick={chooseCosplay}>Elegir Cosplay</button>
-                        ) : null
+                        ) : (
+                            details.choosedBy._id === profile._id && (
+                                <button className="choose-btn btn" onClick={unChooseCosplay}>Liberar Cosplay</button>
+                            )
+                        )
                     )} */}
 
 
