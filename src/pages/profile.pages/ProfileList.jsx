@@ -11,6 +11,15 @@ function ProfileList() {
     const [isFetching, setIsFetching] = useState(true);
     const [isSorted, setIsSorted] = useState(false); // Toggle state for sorting
 
+    const [attendanceSiCounter, setAttendanceSiCounter] = useState(0);
+    const [attendanceQuizasCounter, setAttendanceQuizasCounter] = useState(0);
+    const [attendanceNoCounter, setAttendanceNoCounter] = useState(0);
+    const [totalUsersCounter, setTotalUsersCounter] = useState(0);
+
+    const [hasChoosenCosplay, setHasChoosenCosplay] = useState(0);
+    const [hasntChoosenCosplay, setHasntChoosenCosplay] = useState(0);
+
+
     useEffect(() => {
         // Fetch the profile list when the component mounts
         const fetchData = async () => {
@@ -22,6 +31,24 @@ function ProfileList() {
                 setMyProfile(response2.data);
                 setProfileListToShow(response.data);
                 setIsFetching(false);
+
+                const noAttendanceCount = response.data.filter(user => user.attendance[0] === "No").length;
+                setAttendanceNoCounter(noAttendanceCount);
+
+                const siAttendanceCount = response.data.filter(user => user.attendance[0] === "Sí").length;
+                setAttendanceSiCounter(siAttendanceCount);
+
+                const quizasAttendanceCount = response.data.filter(user => user.attendance[0] === "Quizás").length;
+                setAttendanceQuizasCounter(quizasAttendanceCount);
+
+                setTotalUsersCounter(response.data.length);
+
+                const hasCosplay = response.data.filter(user => user.cosplayId !== null && user.cosplayId !==undefined && user.cosplayId?.length > 0).length;
+                setHasChoosenCosplay(hasCosplay);
+
+                const hasNotCosplay = response.data.filter(user => user.cosplayId === null || user.cosplayId === undefined || user.cosplayId?.length === 0).length;
+                setHasntChoosenCosplay(hasNotCosplay);
+
 
             } catch (error) {
                 console.error('Error fetching profile list:', error);
@@ -66,14 +93,24 @@ function ProfileList() {
         <div className="profile-list">
             <h1>Llista Convidats</h1>
             <div className="cosplayFormCard">
-
-            <SearchUser filterList={filterList} />
-                        
-            
+               <SearchUser filterList={filterList} />    
             </div>
             <div>
                 <br />
-            <button className="btn-yellow btn" onClick={sortByCreationTime}>{isSorted ? "Ordena per primer creat" : "Ordena per últim creat"}</button>
+                <button className="btn-yellow btn" onClick={sortByCreationTime}>{isSorted ? "Ordena per primer creat" : "Ordena per últim creat"}</button>            </div>
+            <br />
+            <div className="attendance-info ">
+            <h5>Total Registrats: {totalUsersCounter}</h5>
+            <hr />
+            <h6>Assistència:</h6>
+                <p><b>Sí</b>: {attendanceSiCounter} p.</p>
+                <p ><b>Quizás</b>: {attendanceQuizasCounter} p.</p>
+                <p ><b>No</b>: {attendanceNoCounter} p.</p>
+                <hr />
+            <h6>Han escollit cosplay?</h6>
+            <p><b>Sí</b>: {hasChoosenCosplay} p.</p>
+            <p ><b>No</b>: {hasntChoosenCosplay} p.</p>
+
 
             </div>
             <br />
@@ -105,7 +142,7 @@ function ProfileList() {
                             <div>
                                 <p>{user.email}</p>
                                 {/* <p className="color">Alérgias: {user.alergies} </p> */}
-                                {user.alergies === "No" || user.alergies === "no" ||user.alergies === "ninguna" ? <p>Alergias: {user.alergies} </p> : <p className="color">Alérgias: {user.alergies} </p>}
+                                {user.alergies === "No" || user.alergies === "no" || user.alergies === "ninguna" || user.alergies === "Ninguna" ? <p>Alergias: {user.alergies} </p> : <p className="color">Alérgias: {user.alergies} </p>}
                                 {user.attendance[0] === "Quizás" || user.attendance[0] === "No" ? (<p className="red">Viene a la boda? {user.attendance}</p>) : (<p>Viene a la boda? {user.attendance} </p>) }
                                 {/* {user.cosplayId !== "" ? (<p>Ha elegido Cosplay? Sí</p>) : (<p>Ha elegido Cosplay? No</p>)} */}
                                 {user.cosplayId !== null && user.cosplayId?.length > 0 ? (<p>Ha elegido Cosplay? Sí</p> ) : (<p className="red">Ha elegido Cosplay? No</p>)}
