@@ -530,8 +530,25 @@ th {
   margin: 5px 0;
 }
 
+.pers-inf-profile{
+  display: flex;
+  justify-content: space-around;
+  max-width: 400px;
+  margin: auto;
+  /* background-color: #106386;
+  border-radius: 10px; */
+  
+}
 
+.pers-inf-segment h5{
+ 
+  
+}
 
+.pers-inf-segment p{
+  /* font-size: 1em; */
+  margin: 5px 0;
+}
 
 @media (max-width: 768px) {
   .dashboard {

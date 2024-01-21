@@ -67,7 +67,7 @@ function MyProfile() {
       <div className="my-profile" >
         <div className="">
           <h1>Hola {myProfile.name}! </h1>
-          <p>Alergias: {myProfile.alergies}</p>
+          {/* <p>Alergias: {myProfile.alergies}</p>
           <p>Vienes a la boda? <b>{myProfile.attendance}</b></p>
           {myProfile.attendance[0] === "No" || myProfile.attendance[0] === "Quizás" ? <p>(Solo podrás escoger cosplay si vienes a la boda!)</p> : null}
       
@@ -75,14 +75,32 @@ function MyProfile() {
             <Link to={`/profile/${myProfile._id}/edit`}>
               <button className="btn-yellow btn">Edita tu perfil</button>
             </Link>
-          </div>
-          <br />
-          <br />
+          </div> */}
+          
         
+<div className="pers-inf-profile">
+          <div className="pers-inf-segment">
+          <h5>Alergias:</h5>
+          <p>{myProfile.alergies}</p>
+        </div>
+        <div className="pers-inf-segment">
+          <h5>Vienes a la boda?</h5>
+          <p>{myProfile.attendance}</p>
+        </div>
+</div>
+        {myProfile.attendance[0] === "No" || myProfile.attendance[0] === "Quizás" ? <p className='red'>(Solo podrás escoger cosplay si vienes a la boda!)</p> : null}
+       <br />
+        <div className='btn'>
+            <Link to={`/profile/${myProfile._id}/edit`}>
+              <button className="btn-yellow btn">Edita tu perfil</button>
+            </Link>
+          </div>
+
+
 
           {myProfile.cosplayId === undefined || myProfile.cosplayId === null || myProfile.cosplayId.length <= 0 ? (
             <div>
-              <h2 className="red">¡Os comunicaremos con antelación cuando se abra la lista para escoger Cosplay!</h2>
+              {/* <h2 className="red">¡Os comunicaremos con antelación cuando se abra la lista para escoger Cosplay!</h2> */}
               <button className="btn-yellow btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
             </div>
           ) : (
