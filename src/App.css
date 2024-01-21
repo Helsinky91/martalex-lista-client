@@ -51,6 +51,13 @@ h1, h2, h3, h4, h5 {
   background-color:#bd3c40;
   
 }
+.btn-green {
+  background-color:#128C7E;
+}
+.btn-green:hover {
+  background-color:#0f7e71;
+  
+}
 
 .btn-blue {
   background-color: #137AA5;
@@ -540,10 +547,9 @@ th {
   
 }
 
-.pers-inf-segment h5{
- 
-  
-}
+/* .link a{
+  color:#E94B50;
+} */
 
 .pers-inf-segment p{
   /* font-size: 1em; */

@@ -89,18 +89,20 @@ function MyProfile() {
         </div>
 </div>
         {myProfile.attendance[0] === "No" || myProfile.attendance[0] === "Quizás" ? <p className='red'>(Solo podrás escoger cosplay si vienes a la boda!)</p> : null}
-       <br />
         <div className='btn'>
             <Link to={`/profile/${myProfile._id}/edit`}>
               <button className="btn-yellow btn">Edita tu perfil</button>
             </Link>
           </div>
 
-
+          
 
           {myProfile.cosplayId === undefined || myProfile.cosplayId === null || myProfile.cosplayId.length <= 0 ? (
             <div>
-              {/* <h2 className="red">¡Os comunicaremos con antelación cuando se abra la lista para escoger Cosplay!</h2> */}
+              <br />
+              {/* <h3 className="red">¡Os comunicaremos con antelación cuando se abra la lista para escoger Cosplay!</h3> */}
+              <h5 className="link">Subscríbete a nuestro <br/><button className="btn btn-green"><a href="https://whatsapp.com/channel/0029VaJH6Q635fLwxdDgfQ1l" >canal de whatsapp</a></button> <br/> para saber cuándo se abrirá la elección de Cosplay.</h5>
+              <br />
               <button className="btn-yellow btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
             </div>
           ) : (

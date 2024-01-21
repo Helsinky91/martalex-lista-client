@@ -241,7 +241,7 @@ function ProfileList() {
              <a href={`mailto:${user.email}`} title={`Send email to ${user.email}`}>@</a>
           </td>
           <td>
-            {user.alergies === "No" || user.alergies === "no" || user.alergies === "ninguna" || user.alergies === "Ninguna" ? (
+            {user.alergies === "No" || user.alergies === "no" || user.alergies === "ninguna" || user.alergies === "Ninguna" || user.alergies === "Ninguna "  || user.alergies === "NO" || user.alergies === "Cap"? (
               <p>{user.alergies}</p>
             ) : (
               <p className="color">{user.alergies}</p>
