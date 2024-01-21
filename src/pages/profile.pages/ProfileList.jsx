@@ -2,6 +2,7 @@ import SearchUser from '../../components/SearchUser';
 import { getMyProfileService, getProfilesListService } from '../../services/profile.services';
 import React, { useState, useEffect } from 'react';
 import PacmanLoader from "react-spinners/PacmanLoader";
+import { Link } from 'react-router-dom';
 
 
 function ProfileList() {
@@ -78,6 +79,13 @@ function ProfileList() {
         setIsSorted(!isSorted);
     };
 
+
+    const sendEmailToAll = (userList) => {
+        const emailAddresses = userList.map(user => user.email).join(',');
+        window.location.href = `mailto:${emailAddresses}`;
+      };
+
+      
     //if content is not loading, show spinner
     if (isFetching === true) {
         return (
@@ -97,62 +105,171 @@ function ProfileList() {
             </div>
             <div>
                 <br />
-                <button className="btn-yellow btn" onClick={sortByCreationTime}>{isSorted ? "Ordena per primer creat" : "Ordena per últim creat"}</button>            </div>
-            <br />
-            <div className="attendance-info ">
-            <h5>Total Registrats: {totalUsersCounter}</h5>
-            <hr />
-            <h6>Assistència:</h6>
-                <p><b>Sí</b>: {attendanceSiCounter} p.</p>
-                <p ><b>Quizás</b>: {attendanceQuizasCounter} p.</p>
-                <p ><b>No</b>: {attendanceNoCounter} p.</p>
-                <hr />
-            <h6>Han escollit cosplay?</h6>
-            <p><b>Sí</b>: {hasChoosenCosplay} p.</p>
-            <p ><b>No</b>: {hasntChoosenCosplay} p.</p>
-
-
+                <button className="btn-yellow btn" onClick={sortByCreationTime}>{isSorted ? "Ordena per primer creat" : "Ordena per últim creat"}</button>           
             </div>
             <br />
-            <ul>
-                {profileListToShow.map((user) => (
-                    <li key={user._id}>
-                        <h4>{user.name}</h4>
+            
+            {/* <div className="attendance-info ">
+                <h5>Total Registrats: {totalUsersCounter}</h5>
+                <hr />
+                <h6>Assistència:</h6>
+                    <p><b>Sí</b>: {attendanceSiCounter} p.</p>
+                    <p ><b>Quizás</b>: {attendanceQuizasCounter} p.</p>
+                    <p ><b>No</b>: {attendanceNoCounter} p.</p>
+                    <hr />
+                <h6>Han escollit cosplay?</h6>
+                <p><b>Sí</b>: {hasChoosenCosplay} p.</p>
+                <p ><b>No</b>: {hasntChoosenCosplay} p.</p>
 
-                        {myProfile.role === "admin" ? (
-                            <div>
-                                {user.attendance[0] === "Quizás" || user.attendance[0] === "No" ? (<p className="red">Viene a la boda? {user.attendance}</p>) : (<p>Viene a la boda? {user.attendance} </p>) }
-                                {/* <p>Cosplay Elegido:</p> */}
-                                {user.cosplayId === undefined || user.cosplayId === null ? (<p></p>) : (    
-                                    <div>
-                                        <ul>
-                                            {user.cosplayId.map((cosplay) => (
-                                                <li key={cosplay._id}>
-                                                    <p>{cosplay.name}</p>
-                                                    <img src={cosplay.image} height="250" alt={cosplay.name} />
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                )}
-                            </div>
-                        ) : ('')}
 
-                        {myProfile.role === "limited" ? (
-                            <div>
-                                <p>{user.email}</p>
-                                {/* <p className="color">Alérgias: {user.alergies} </p> */}
-                                {user.alergies === "No" || user.alergies === "no" || user.alergies === "ninguna" || user.alergies === "Ninguna" ? <p>Alergias: {user.alergies} </p> : <p className="color">Alérgias: {user.alergies} </p>}
-                                {user.attendance[0] === "Quizás" || user.attendance[0] === "No" ? (<p className="red">Viene a la boda? {user.attendance}</p>) : (<p>Viene a la boda? {user.attendance} </p>) }
-                                {/* {user.cosplayId !== "" ? (<p>Ha elegido Cosplay? Sí</p>) : (<p>Ha elegido Cosplay? No</p>)} */}
-                                {user.cosplayId !== null && user.cosplayId?.length > 0 ? (<p>Ha elegido Cosplay? Sí</p> ) : (<p className="red">Ha elegido Cosplay? No</p>)}
-                            </div>
-                        ) : ('')}
+            </div> */}
 
-                        <hr />
-                    </li>
+<div className="attendance-info">
+  <div className="total-users">
+    <h5>Total Registrats:</h5>
+    <p>{totalUsersCounter}</p>
+  </div>
+
+  <div className="data-tables">
+    <table className="assistencia-table">
+      <thead>
+        <tr>
+          <th colSpan="2">Assistència</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sí</td>
+          <td>{attendanceSiCounter}</td>
+        </tr>
+        <tr>
+          <td>Quizás</td>
+          <td>{attendanceQuizasCounter}</td>
+        </tr>
+        <tr>
+          <td>No</td>
+          <td>{attendanceNoCounter}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table className="cosplay-table">
+      <thead>
+        <tr>
+          <th colSpan="2">Cosplay escollit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sí</td>
+          <td>{hasChoosenCosplay}</td>
+        </tr>
+        <tr>
+          <td>No</td>
+          <td>{hasntChoosenCosplay}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+            <br />
+            {myProfile.role === "admin" && (
+  <table>
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Ve a la boda?</th>
+        <th>Cosplay Escollit</th>
+      </tr>
+    </thead>
+    <tbody>
+      {profileListToShow.map((user) => (
+        <tr key={user._id}>
+          <td>{user.name}</td>
+          <td>
+            {user.attendance[0] === "Quizás" || user.attendance[0] === "No" ? (
+              <span className="red">{user.attendance}</span>
+            ) : (
+              <span>{user.attendance}</span>
+            )}
+          </td>
+          <td>
+            {user.cosplayId === undefined || user.cosplayId === null ? (
+              <p></p>
+            ) : (
+              <ul>
+                {user.cosplayId.map((cosplay) => (
+                  <li key={cosplay._id}>
+                    <p>{cosplay.name}</p>
+                    <Link to={`/cosplay/${cosplay._id}/details`}>
+                      <img src={cosplay.image} height="120" alt={cosplay.name} />
+                    </Link>
+                  </li>
                 ))}
-            </ul>
+              </ul>
+            )}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)}
+
+{myProfile.role === "limited" && (
+    <div>
+    {/* <button onClick={() => sendEmailToAll(profileListToShow)}>Send Email to All</button> */}
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Alèrgies</th>
+        <th>Ve a la boda</th>
+        <th>Cosplay escollit</th>
+      </tr>
+    </thead>
+    <tbody>
+      {profileListToShow.map((user) => (
+        <tr key={user._id}>
+          <td>{user.name}</td>
+          {/* <td>{user.email}</td> */}
+          <td>
+             <a href={`mailto:${user.email}`} title={`Send email to ${user.email}`}>@</a>
+          </td>
+          <td>
+            {user.alergies === "No" || user.alergies === "no" || user.alergies === "ninguna" || user.alergies === "Ninguna" ? (
+              <p>{user.alergies}</p>
+            ) : (
+              <p className="color">{user.alergies}</p>
+            )}
+          </td>
+          <td>
+            {user.attendance[0] === "Quizás" || user.attendance[0] === "No" ? (
+              <p className="red">{user.attendance}</p>
+            ) : (
+              <p>{user.attendance}</p>
+            )}
+          </td>
+          <td>
+            {user.cosplayId !== null && user.cosplayId?.length > 0 ? (
+              <p>Sí</p>
+            ) : (
+              <p className="red">No</p>
+            )}
+          </td>
+         
+        </tr>
+        
+      ))}
+      
+    </tbody>
+  </table>
+  </div>
+)}
         </div>
     );
 }

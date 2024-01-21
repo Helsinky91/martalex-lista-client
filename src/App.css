@@ -345,18 +345,89 @@ h1, h2, h3, h4, h5 {
 
 .attendance-info {
   background-color: #137AA5;
-  margin-left: 30%;
-  margin-right: 30%;
+  margin-left: 15%;
+  margin-right: 15%;
   border-radius: 20px;
-  padding-top: 2%;
-  padding-bottom: 0.5%;
-  color: black
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.profile-list {
+  text-align: center;
 }
 
 .profile-list li{
-  list-style-type: none;
+  list-style: none;
+}
+
+.total-users,
+.data-tables {
+  flex-grow: 1;
+}
+
+.total-users p {
+  font-size: xx-large;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
 
 }
+.data-tables {
+  display: flex;
+  justify-content: space-around;
+}
+
+.assistencia-table,
+.cosplay-table {
+  flex-grow: 1;
+  margin-left: 10px; 
+  margin-right: 10px;
+}
+/* 
+.data-tables table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+
+.data-tables th, .data-tables td {
+  padding: 15px;
+  border: 1px solid #000;
+  background-color: #f2f2f2;
+  font-family: 'Press Start 2P', cursive; 
+}
+
+.data-tables th {
+  background-color: #d68736;
+  color: #fff;
+}
+
+.cosplay-table td {
+  font-weight: bold;
+  color: #d68736; 
+} */
+
+
+table {
+  border-collapse: collapse;
+  /* width: 80%;  */
+  margin: 10px auto; 
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 0.5px solid #dddddd4f; /* Fine line under each td */
+  text-align: center;
+}
+
+th {
+  background-color:#106386;
+  color: black;
+
+}
+
 
 .profile-form {
   margin-top: 2%;
@@ -429,6 +500,35 @@ h1, h2, h3, h4, h5 {
   min-height: 100vh;
 }
 
+.countdown-container {
+  text-align: center;
+  margin: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.countdown-clock {
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  margin: auto;
+}
+
+.countdown-segment {
+  text-align: center;
+}
+
+.countdown-segment span {
+  font-size: 2em;
+  font-weight: bold;
+  color: #2196F3;
+}
+
+.countdown-segment p {
+  font-size: 1em;
+  color: #757575;
+  margin: 5px 0;
+}
 
 
 
@@ -484,6 +584,14 @@ h1, h2, h3, h4, h5 {
     background-color: #137AA5;
     margin-left: 5%;
     margin-right: 5%;
+  }
+  .attendance-info {
+    padding-top: 10px;
+    flex-direction: column; 
+  }
+
+  .data-tables {
+    flex-direction: column; 
   }
  
 }

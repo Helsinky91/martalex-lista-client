@@ -5,6 +5,7 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 import { getMyProfileService } from '../../services/profile.services';
 // import { getCosplayDetailsService } from '../../services/cosplay.services';
 import Error from '../Error';
+import CountdownTimer from '../../components/CountdownTimer';
 
 
 function MyProfile() {
@@ -61,6 +62,7 @@ function MyProfile() {
           <button className='btn-blue btn' >Lista invitados </button></Link>
       ) : (<p></p>)}
       
+      <div><CountdownTimer/></div>
 
       <div className="my-profile" >
         <div className="">
