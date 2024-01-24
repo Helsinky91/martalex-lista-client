@@ -30,7 +30,7 @@ function MyProfile() {
       //call my profile info 
       const response = await getMyProfileService()
       setMyProfile(response.data);
-      
+
       setIsFetching(false)
 
     } catch (error) {
@@ -47,22 +47,22 @@ function MyProfile() {
     )
   }
 
-  
-    //if error pass the error status
-    if (error) {
-      return <Error status={error} />;
-    }
+
+  //if error pass the error status
+  if (error) {
+    return <Error status={error} />;
+  }
 
 
   return (
     <div className='profile-page'>
 
       {myProfile.role === "admin" || myProfile.role === "limited" ? (
-          <Link to="/profile/list">
+        <Link to="/profile/list">
           <button className='btn-blue btn' >Lista invitados </button></Link>
       ) : (<p></p>)}
-      
-      <div><CountdownTimer/></div>
+
+      <div><CountdownTimer /></div>
 
       <div className="my-profile" >
         <div className="">
@@ -76,44 +76,48 @@ function MyProfile() {
               <button className="btn-yellow btn">Edita tu perfil</button>
             </Link>
           </div> */}
-          
-        
-<div className="pers-inf-profile">
-          <div className="pers-inf-segment">
-          <h5>Alergias:</h5>
-          <p>{myProfile.alergies}</p>
-        </div>
-        <div className="pers-inf-segment">
-          <h5>Vienes a la boda?</h5>
-          <p>{myProfile.attendance}</p>
-        </div>
-</div>
-        {myProfile.attendance[0] === "No" || myProfile.attendance[0] === "Quizás" ? <p className='red'>(Solo podrás escoger cosplay si vienes a la boda!)</p> : null}
-        <div className='btn'>
+
+
+          <div className="pers-inf-profile">
+            <div className="pers-inf-segment">
+              <h5>Alergias:</h5>
+              <p>{myProfile.alergies}</p>
+            </div>
+            <div className="pers-inf-segment">
+              <h5>Vienes a la boda?</h5>
+              <p>{myProfile.attendance}</p>
+            </div>
+          </div>
+          {myProfile.attendance[0] === "No" || myProfile.attendance[0] === "Quizás" ? <p className='red'>(Solo podrás escoger cosplay si vienes a la boda!)</p> : null}
+          <div className='btn'>
             <Link to={`/profile/${myProfile._id}/edit`}>
               <button className="btn-yellow btn">Edita tu perfil</button>
             </Link>
           </div>
 
-          
+
 
           {myProfile.cosplayId === undefined || myProfile.cosplayId === null || myProfile.cosplayId.length <= 0 ? (
             <div>
               <br />
               {/* <h3 className="red">¡Os comunicaremos con antelación cuando se abra la lista para escoger Cosplay!</h3> */}
-              <h5 className="link">Subscríbete a nuestro <br/><button className="btn btn-green"><a href="https://whatsapp.com/channel/0029VaJH6Q635fLwxdDgfQ1l" >canal de whatsapp</a></button> <br/> para saber cuándo se abrirá la elección de Cosplay.</h5>
+              <h5 className="link">Subscríbete a nuestro <br /><button className="btn btn-green"><a href="https://whatsapp.com/channel/0029VaJH6Q635fLwxdDgfQ1l" >canal de Whatsapp</a></button> <br /> para saber cuándo se abrirá la elección de Cosplay.</h5>
               <br />
               <button className="btn-yellow btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
             </div>
           ) : (
+            <div>
+              <h5 className="link">Subscríbete a nuestro <br/> <button className="btn btn-green"><a href="https://whatsapp.com/channel/0029VaJH6Q635fLwxdDgfQ1l" >canal de Whatsapp</a></button> <br/> para mantenerte al día.</h5>
+              <br />
             <div className="cosplay-profile-info">
-              {myProfile.cosplayId.map((cosplay) => (  
-                  <Link to={`/cosplay/${cosplay._id}/details`}>
-                    <h2>{cosplay.name}</h2>
-                    <img src={cosplay.image} height={300} alt={cosplay.name} />
-                    <p>Clica en la foto para obtener toda la info del cosplay</p>
-                  </Link>
+              {myProfile.cosplayId.map((cosplay) => (
+                <Link to={`/cosplay/${cosplay._id}/details`}>
+                  <h2>{cosplay.name}</h2>
+                  <img src={cosplay.image} height={300} alt={cosplay.name} />
+                  <p>Clica en la foto para obtener toda la info del cosplay</p>
+                </Link>
               ))}
+            </div>
             </div>
           )}
 
