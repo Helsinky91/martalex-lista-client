@@ -4,6 +4,8 @@ import { loginService } from '../services/auth.services';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import Error from "./Error";
+import { Link } from 'react-router-dom';
+
 
 function Login() {
 
@@ -98,6 +100,8 @@ function Login() {
 
 
       </form>
+      {/* <br />
+      <button className="btn btn-yellow"><Link to="/forgot-password">Recuperar contraseña</Link></button> */}
 
     </div>
     </div>

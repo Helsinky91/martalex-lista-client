@@ -16,8 +16,22 @@ const verifyService = () => {
     return service.get('/auth/verify')
 }
 
+// // for POST "auth/forgot-password"
+// const forgotPasswordService = (email) => {
+//     return service.post('/auth/forgot-password', { email });
+//   };
+  
+//   // for POST "auth/reset-password"
+//   const resetPasswordService = (token, newPassword) => {
+//     return service.post(`/auth/reset-password/${token}`, { newPassword });
+//   };
+
+
+
 export {
     signupService,
     loginService,
-    verifyService
+    verifyService,
+    // forgotPasswordService, 
+    // resetPasswordService, 
 }

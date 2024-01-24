@@ -96,19 +96,21 @@ function MyProfile() {
           </div>
 
 
-
+<hr className="hr-profile" />
           {myProfile.cosplayId === undefined || myProfile.cosplayId === null || myProfile.cosplayId.length <= 0 ? (
             <div>
-              <br />
+              
               {/* <h3 className="red">¡Os comunicaremos con antelación cuando se abra la lista para escoger Cosplay!</h3> */}
               <h5 className="link">Subscríbete a nuestro <br /><button className="btn btn-green"><a href="https://whatsapp.com/channel/0029VaJH6Q635fLwxdDgfQ1l" >canal de Whatsapp</a></button> <br /> para saber cuándo se abrirá la elección de Cosplay.</h5>
               <br />
+             
               <button className="btn-yellow btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
             </div>
           ) : (
             <div>
               <h5 className="link">Subscríbete a nuestro <br/> <button className="btn btn-green"><a href="https://whatsapp.com/channel/0029VaJH6Q635fLwxdDgfQ1l" >canal de Whatsapp</a></button> <br/> para mantenerte al día.</h5>
               <br />
+              
             <div className="cosplay-profile-info">
               {myProfile.cosplayId.map((cosplay) => (
                 <Link to={`/cosplay/${cosplay._id}/details`}>

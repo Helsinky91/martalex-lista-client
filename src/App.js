@@ -14,6 +14,8 @@ import MyProfile from './pages/profile.pages/MyProfile';
 import NotFound from './pages/NotFound';
 import Error from './pages/Error';
 import ProfileEdit from './pages/profile.pages/ProfileEdit';
+// import ResetPassword from './pages/ResetPassword';
+// import ForgotPassword from './pages/ForgotPassword';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
+          {/* <Route path="/forgot-password" element={<ForgotPassword />} /> */}
+          {/* <Route path="/reset-password/:token" element={<ResetPassword />} /> */}
 
           {/* private pages*/}
           <Route path='/cosplay/cosplay-list' element={<IsPrivate><CosplayList /></IsPrivate>}/>
