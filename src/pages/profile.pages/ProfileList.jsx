@@ -201,14 +201,14 @@ function ProfileList() {
                     <p></p>
                   ) : (
                     <ul>
-                      {user.cosplayId.map((cosplay) => (
-                        <li key={cosplay._id}>
-                          <p>{cosplay.name}</p>
-                          <Link to={`/cosplay/${cosplay._id}/details`}>
-                            <img src={cosplay.image} height="120" alt={cosplay.name} />
+                      
+                        <li key={user.cosplayId._id}>
+                          <p>{user.cosplayId.name}</p>
+                          <Link to={`/cosplay/${user.cosplayId._id}/details`}>
+                            <img src={user.cosplayId.image} height="120" alt={user.cosplayId.name} />
                           </Link>
                         </li>
-                      ))}
+                      
                     </ul>
                   )}
                 </td>

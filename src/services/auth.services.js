@@ -5,6 +5,11 @@ const signupService = (newUser) => {
     return service.post("/auth/signup", newUser)
 }
 
+// //for POST "auth/signup"
+// const signupService = (newUser) => {
+//     return service.post("/auth/signup", { ...newUser, cosplayId: null });
+//}
+
 //for POST "auth/login"
 const loginService = (userCredentials) => {
     return service.post('/auth/login', userCredentials)

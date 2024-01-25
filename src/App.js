@@ -14,6 +14,7 @@ import MyProfile from './pages/profile.pages/MyProfile';
 import NotFound from './pages/NotFound';
 import Error from './pages/Error';
 import ProfileEdit from './pages/profile.pages/ProfileEdit';
+import ChoosedCosplay from './pages/cosplay-pages/ChoosedCosplay';
 // import ResetPassword from './pages/ResetPassword';
 // import ForgotPassword from './pages/ForgotPassword';
 
@@ -38,10 +39,13 @@ function App() {
           <Route path='/profile/my-profile' element={<IsPrivate> <MyProfile /> </IsPrivate>} />
           <Route path='/profile/list' element={<IsPrivate> <ProfileList /> </IsPrivate>} />
           <Route path='/profile/:userId/edit' element={<IsPrivate> <ProfileEdit /> </IsPrivate>} />
+        
           
           {/* errors page*/}
           <Route path='/error' element={<Error />} />
           <Route path='*' element={<NotFound />} />
+          <Route path='/choosed-cosplay' element={<ChoosedCosplay />} />
+
 
       </Routes>
 

@@ -40,15 +40,42 @@ function CosplayDetails() {
     }
 
 
-    //to be able to choose a cosplay
+ //   to be able to choose a cosplay
+    // const chooseCosplay = async () => {
+    //     try {
+    //        // Check if the cosplay has already been chosen
+    //     if (details.choosedBy) {
+    //         alert("Upss, you were too late. This cosplay has already been chosen.");
+    //     } else {
+    //         await chooseCosplayService(cosplayId);
+    //         getData();
+    //     }
+    //     } catch (err) {
+    //         console.error("Error choosing cosplay:", err);
+    //         navigate("/error")
+    //     }
+    // }
+
     const chooseCosplay = async () => {
         try {
-            await chooseCosplayService(cosplayId)
-            getData()
+            const response = await chooseCosplayService(cosplayId);
+    
+            if (details.choosedBy) {
+                // The cosplay has already been chosen
+                alert("Upss, you were too late. This cosplay has already been chosen.");
+            } else {
+                // The cosplay has been chosen, update the state
+                const updatedDetails = await getCosplayDetailsService(cosplayId);
+                setDetails(updatedDetails.data);
+            }
         } catch (err) {
-            navigate("/error")
+            console.error("Error choosing cosplay:", err);
+            // Display a custom error message
+        // alert("An error occurred while choosing the cosplay. Please try again.");
+            navigate("/choosed-cosplay");
         }
     }
+    
 
     //to be able to unchoose a cosplay
     const unChooseCosplay = async () => {
@@ -56,6 +83,7 @@ function CosplayDetails() {
             await unChooseCosplayService(cosplayId)
             getData()
         } catch (err) {
+            console.error("Error unchoosing cosplay:", err);
             navigate("/error")
         }
     }
@@ -122,6 +150,8 @@ function CosplayDetails() {
                             )
                         )
                     )} */}
+                    
+                   
 
 
                 </div>

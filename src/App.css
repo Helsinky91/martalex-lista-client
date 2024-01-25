@@ -492,9 +492,30 @@ th {
   min-height: 100vh;
 }
 
-.error-page h5 {
-  padding-top: 20px;
+.error-page h2 {
+  padding-top: 90px;
+  /* color: #c77634; */
   color: #E94B50;
+  /* color: white; */
+  -webkit-text-stroke: 0.3px black; 
+}
+
+.choosed-cosplay h2   {
+  padding-top: 35px;
+  
+  color:#106386;
+  /* color: white; */
+  -webkit-text-stroke: 0.3px white; 
+}
+
+.choosed-cosplay{
+  background-image: url("../src/assets/oh-no.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 10px;
+  margin-top: 25px;
+
+  min-height: 100vh;
 }
 
 .not-found-page{
