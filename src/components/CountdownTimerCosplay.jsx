@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { differenceInMonths, differenceInDays, differenceInHours, differenceInMinutes, parse } from 'date-fns';
+import { differenceInMonths, differenceInDays, differenceInHours, differenceInMinutes, setHours, setMinutes, setSeconds, parse } from 'date-fns';
 import { es } from 'date-fns/locale'; // Import Spanish locale
 
-const CountdownTimer = () => {
-  // Set the target date (15th June 2024)
-  const targetDate = parse('2024-06-15', 'yyyy-MM-dd', new Date());
+const CountdownTimerCosplay = () => {
+  // Set the target date (28th January 2024 at 8 pm Spain time)
+  const targetDate = setSeconds(setMinutes(setHours(parse('2024-01-28', 'yyyy-MM-dd', new Date()), 20), 0), 0);
 
   // State to store the remaining time
   const [remainingMonths, setRemainingMonths] = useState(0);
@@ -34,33 +34,29 @@ const CountdownTimer = () => {
   }, [targetDate]);
 
   return (
-    // <div className="countdown">
-      
-    //   <h5>{`Quedan ${remainingMonths} meses, ${remainingDays} días, ${remainingHours} horas y ${remainingMinutes} minutos.`}</h5>
-    // </div>
-<div className="countdown-container">
-      <h3>Días para la boda</h3>
-      <div className="countdown-clock">
-        <div className="countdown-segment">
+    <div className="countdown-cosplay-container">
+      <h3>Apertura de elección de Cosplay</h3>
+      <div className="countdown-cosplay-clock">
+        <div className="countdown-cosplay-segment">
           <span>{String(remainingMonths).padStart(2, '0')}</span>
           <p>Meses</p>
         </div>
-        <div className="countdown-segment">
+        <div className="countdown-cosplay-segment">
           <span>{String(remainingDays).padStart(2, '0')}</span>
           <p>Días</p>
         </div>
-        <div className="countdown-segment">
+        <div className="countdown-cosplay-segment">
           <span>{String(remainingHours).padStart(2, '0')}</span>
           <p>Horas</p>
         </div>
-        <div className="countdown-segment">
+        <div className="countdown-cosplay-segment">
           <span>{String(remainingMinutes).padStart(2, '0')}</span>
           <p>Min</p>
         </div>
+        
       </div>
     </div>
-
   );
 };
 
-export default CountdownTimer;
+export default CountdownTimerCosplay;

@@ -44,12 +44,11 @@ function ProfileList() {
 
         setTotalUsersCounter(response.data.length);
 
-        const hasCosplay = response.data.filter(user => user.cosplayId !== null && user.cosplayId !== undefined && user.cosplayId?.length > 0).length;
+        const hasCosplay = response.data.filter(user => user.cosplayId !== null && user.cosplayId !== undefined).length;
         setHasChoosenCosplay(hasCosplay);
 
-        const hasNotCosplay = response.data.filter(user => user.cosplayId === null || user.cosplayId === undefined || user.cosplayId?.length === 0).length;
+        const hasNotCosplay = response.data.filter(user => user.cosplayId === null || user.cosplayId === undefined).length;
         setHasntChoosenCosplay(hasNotCosplay);
-
 
       } catch (error) {
         console.error('Error fetching profile list:', error);
@@ -85,6 +84,7 @@ function ProfileList() {
     window.location.href = `mailto:${emailAddresses}`;
   };
 
+  
 
   //if content is not loading, show spinner
   if (isFetching === true) {
@@ -109,20 +109,6 @@ function ProfileList() {
       </div>
       <br />
 
-      {/* <div className="attendance-info ">
-                <h5>Total Registrats: {totalUsersCounter}</h5>
-                <hr />
-                <h6>Assistència:</h6>
-                    <p><b>Sí</b>: {attendanceSiCounter} p.</p>
-                    <p ><b>Quizás</b>: {attendanceQuizasCounter} p.</p>
-                    <p ><b>No</b>: {attendanceNoCounter} p.</p>
-                    <hr />
-                <h6>Han escollit cosplay?</h6>
-                <p><b>Sí</b>: {hasChoosenCosplay} p.</p>
-                <p ><b>No</b>: {hasntChoosenCosplay} p.</p>
-
-
-            </div> */}
 
       <div className="attendance-info">
         <div className="total-users">
@@ -257,7 +243,7 @@ function ProfileList() {
                     )}
                   </td>
                   <td>
-                    {user.cosplayId !== null && user.cosplayId?.length > 0 ? (
+                    {user.cosplayId !== null && user.cosplayId !== undefined ? (
                       <p>Sí</p>
                     ) : (
                       <p className="red">No</p>

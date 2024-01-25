@@ -6,6 +6,7 @@ import { getMyProfileService } from '../../services/profile.services';
 // import { getCosplayDetailsService } from '../../services/cosplay.services';
 import Error from '../Error';
 import CountdownTimer from '../../components/CountdownTimer';
+import CountdownTimerCosplay from '../../components/CountdownTimerCosplay';
 
 
 function MyProfile() {
@@ -30,7 +31,7 @@ function MyProfile() {
       //call my profile info 
       const response = await getMyProfileService()
       setMyProfile(response.data);
-      console.log("getMyProfileService: ", response.data)
+      
       setIsFetching(false)
 
     } catch (error) {
@@ -80,11 +81,11 @@ function MyProfile() {
 
           <div className="pers-inf-profile">
             <div className="pers-inf-segment">
-              <h5>Alergias:</h5>
+              <span>Alergias:</span>
               <p>{myProfile.alergies}</p>
             </div>
             <div className="pers-inf-segment">
-              <h5>Vienes a la boda?</h5>
+              <span>Vienes a la boda?</span>
               <p>{myProfile.attendance}</p>
             </div>
           </div>
@@ -94,41 +95,46 @@ function MyProfile() {
               <button className="btn-yellow btn">Edita tu perfil</button>
             </Link>
           </div>
+          <hr className="hr-profile" />
 
+          <div><CountdownTimerCosplay /></div>
 
-<hr className="hr-profile" />
+          
+          
+
           {myProfile.cosplayId === undefined || myProfile.cosplayId === null || myProfile.cosplayId.length <= 0 ? (
             <div>
-              
-              {/* <h3 className="red">¡Os comunicaremos con antelación cuando se abra la lista para escoger Cosplay!</h3> */}
-              <h5 className="link">Subscríbete a nuestro <br /><button className="btn btn-green"><a href="https://whatsapp.com/channel/0029VaJH6Q635fLwxdDgfQ1l" >canal de Whatsapp</a></button> <br /> para saber cuándo se abrirá la elección de Cosplay.</h5>
               <br />
-             
+
               <button className="btn-yellow btn"><Link to="/cosplay/cosplay-list">MIRA TODOS LOS COSPLAYS DISPONIBLES</Link></button>
-            <br />
-            <br />
-            <br />
+              {/* <br />
+              <br />
+              <br /> */}
             </div>
           ) : (
             <div>
-              <h5 className="link">Subscríbete a nuestro <br/> <button className="btn btn-green"><a href="https://whatsapp.com/channel/0029VaJH6Q635fLwxdDgfQ1l" >canal de Whatsapp</a></button> <br/> para mantenerte al día.</h5>
+              {/* <h5 className="link">Subscríbete a nuestro <br /> <button className="btn btn-green"><a href="https://whatsapp.com/channel/0029VaJH6Q635fLwxdDgfQ1l" >canal de Whatsapp</a></button> <br /> para recibir novedades y avisos.</h5> */}
               <br />
-              
-            <div className="cosplay-profile-info">
-              
+
+              <div className="cosplay-profile-info">
+
                 <Link to={`/cosplay/${myProfile.cosplayId._id}/details`}>
                   <h2>{myProfile.cosplayId.name}</h2>
                   <img src={myProfile.cosplayId.image} height={300} alt={myProfile.cosplayId.name} />
                   <p>Clica en la foto para obtener toda la info del cosplay</p>
                 </Link>
-                <br />
-            <br />
-            <br />
-            </div>
+                {/* <br />
+                 <br />
+                <br /> */}
+              </div>
             </div>
           )}
 
-
+<hr className="hr-profile" />
+              <h5 className="link">Subscríbete a nuestro <br /><button className="btn btn-green"><a href="https://whatsapp.com/channel/0029VaJH6Q635fLwxdDgfQ1l" >canal de Whatsapp</a></button> <br /> para recibir novedades y avisos.</h5>
+          {/* <hr className="hr-profile" /> */}
+          <br />
+          <br />
 
         </div>
 
