@@ -468,7 +468,9 @@ th {
 
 .cosplay-profile-info{
   /* background-color: #137AA5; */
-  background-color: white;
+  /* background-color: white; */
+  background-color: #137AA5;
+
   margin-left: 35%;
   margin-right: 35%;
   border-radius: 8px;
@@ -477,9 +479,9 @@ th {
   /* color: black; */
 }
 
-.cosplay-profile-info h2, .cosplay-profile-info p {
+/* .cosplay-profile-info h2, .cosplay-profile-info p {
   color: black;
-}
+} */
 
 .cosplay-profile-info img{
   max-height: 250px;
@@ -557,7 +559,7 @@ th {
   border: 4px solid #1a1a1a; /* Dark background color */
   padding: 1.5%;
   /* background-color: #292929;  */
-  background-color: #1a20408f; 
+  background-color: #1a2040c0; 
   
   border-radius: 10px;
 }
@@ -670,8 +672,9 @@ th {
 }
 
 .my-profile h1{
-  -webkit-text-stroke: 1.5px white; 
-  color: black
+  color: black;
+  -webkit-text-stroke: 0.8px white; 
+  
 }
 
 .pers-inf-profile{
@@ -746,15 +749,16 @@ th {
     margin-bottom: 2%;
   }
   .cosplay-profile-info{
-    background-color: rgba(255, 255, 255);
+    /* background-color: rgba(255, 255, 255); */
+    background-color: #137AA5;
     margin-left: 5%;
     margin-right: 5%;
     /* color: black */
   }
 
-  .cosplay-profile-info h2, .cosplay-profile-info p {
-    color: black;
-  }
+  /* .cosplay-profile-info h2, .cosplay-profile-info p {
+    color: white;
+  } */
 
   .attendance-info {
     padding-top: 10px;
