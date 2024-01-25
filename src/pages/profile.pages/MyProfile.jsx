@@ -68,17 +68,7 @@ function MyProfile() {
       <div className="my-profile" >
         <div className="">
           <h1>Hola {myProfile.name}! </h1>
-          {/* <p>Alergias: {myProfile.alergies}</p>
-          <p>Vienes a la boda? <b>{myProfile.attendance}</b></p>
-          {myProfile.attendance[0] === "No" || myProfile.attendance[0] === "Quizás" ? <p>(Solo podrás escoger cosplay si vienes a la boda!)</p> : null}
-      
-          <div className='btn'>
-            <Link to={`/profile/${myProfile._id}/edit`}>
-              <button className="btn-yellow btn">Edita tu perfil</button>
-            </Link>
-          </div> */}
-
-
+          
           <div className="pers-inf-profile">
             <div className="pers-inf-segment">
               <span>Alergias:</span>
@@ -99,8 +89,6 @@ function MyProfile() {
 
           <div><CountdownTimerCosplay /></div>
 
-          
-          
 
           {myProfile.cosplayId === undefined || myProfile.cosplayId === null || myProfile.cosplayId.length <= 0 ? (
             <div>

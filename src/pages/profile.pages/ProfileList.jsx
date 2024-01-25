@@ -19,7 +19,7 @@ function ProfileList() {
 
   const [hasChoosenCosplay, setHasChoosenCosplay] = useState(0);
   const [hasntChoosenCosplay, setHasntChoosenCosplay] = useState(0);
-
+  const [allergyFilter, setAllergyFilter] = useState(false);
 
   useEffect(() => {
     // Fetch the profile list when the component mounts
@@ -84,7 +84,52 @@ function ProfileList() {
     window.location.href = `mailto:${emailAddresses}`;
   };
 
+   // Function to filter profiles based on attendance
+   const filterByAttendance = (attendanceType) => {
+    const filteredList = profileListToShow.filter(user => user.attendance[0] === attendanceType);
+    setProfileListToShow(filteredList);
+  };
+
+// Function to filter profiles based on cosplay
+const filterByCosplay = (cosplayFilter) => {
+  const filteredList = profileListToShow.filter((user) => {
+    if (cosplayFilter === "Sí") {
+      return user.cosplayId !== null && user.cosplayId !== undefined;
+    } else if (cosplayFilter === "No") {
+      return user.cosplayId === null || user.cosplayId === undefined;
+    }
+    return true; // No filter applied
+  });
+  setProfileListToShow(filteredList);
+}
+
+  // Function to reset the profile list to the original data
+  const resetFilter = () => {
+    setProfileListToShow(profileList);
+  };
+
+  const filterByAllergies = () => {
+    const filteredList = profileListToShow.filter((user) => {
+      return (
+        user.alergies !== "No" &&
+        user.alergies !== "no" &&
+        user.alergies !== "ninguna" &&
+        user.alergies !== "Ninguna" &&
+        user.alergies !== "Ninguna " &&
+        user.alergies !== "NO" &&
+        user.alergies !== "Cap"
+      );
+    });
   
+    setProfileListToShow(filteredList);
+    setAllergyFilter(true); // Set the allergy filter as active
+  };
+  
+  // const resetAllergyFilter = () => {
+  //   setProfileListToShow(profileList);
+  //   setAllergyFilter(false); // Set the allergy filter as inactive
+  // };
+
 
   //if content is not loading, show spinner
   if (isFetching === true) {
@@ -99,7 +144,7 @@ function ProfileList() {
   //if user === limited && cosplay !== null > show "cosplay escogido"        
   return (
     <div className="profile-list">
-      <h1>Llista Convidats</h1>
+      <h2>Llista Convidats</h2>
       <div className="cosplayFormCard">
         <SearchUser filterList={filterList} />
       </div>
@@ -114,6 +159,7 @@ function ProfileList() {
         <div className="total-users">
           <h5>Total Registrats:</h5>
           <p>{totalUsersCounter}</p>
+          <button className="btn btn-yellow" onClick={resetFilter}>Mostra tota la llista</button>
         </div>
 
         <div className="data-tables">
@@ -125,18 +171,24 @@ function ProfileList() {
             </thead>
             <tbody>
               <tr>
-                <td>Sí</td>
+                {/* <td>Sí</td> */}
+                <td><button onClick={() => filterByAttendance("Sí")}>Sí</button></td>
                 <td>{attendanceSiCounter}</td>
               </tr>
               <tr>
-                <td>Quizás</td>
+                {/* <td>Quizás</td> */}
+                <td><button onClick={() => filterByAttendance("Quizás")}>Quizás</button></td>
                 <td>{attendanceQuizasCounter}</td>
               </tr>
               <tr>
-                <td>No</td>
+                {/* <td>No</td> */}
+                <td><button onClick={() => filterByAttendance("No")}>No</button></td>
                 <td>{attendanceNoCounter}</td>
               </tr>
             </tbody>
+            
+             
+            
           </table>
 
           <table className="cosplay-table">
@@ -147,19 +199,22 @@ function ProfileList() {
             </thead>
             <tbody>
               <tr>
-                <td>Sí</td>
+                {/* <td>Sí</td> */}
+                <td><button onClick={() => filterByCosplay("Sí")}>Sí</button></td>
                 <td>{hasChoosenCosplay}</td>
               </tr>
               <tr>
-                <td>No</td>
+                {/* <td>No</td> */}
+                <td><button onClick={() => filterByCosplay("No")}>No</button></td>
                 <td>{hasntChoosenCosplay}</td>
               </tr>
+              
             </tbody>
           </table>
         </div>
       </div>
 
-
+      {/* <button onClick={resetAllergyFilter}>Clear Filter</button> */}
 
       <br />
       {myProfile.role === "admin" && (
@@ -213,7 +268,8 @@ function ProfileList() {
               <tr>
                 <th>Nom</th>
                 <th>Email</th>
-                <th>Alèrgies</th>
+                {/* <th>Alèrgies</th> */}
+                <th><button className="btn" onClick={() => filterByAllergies()}>Alèrgies</button></th>
                 <th>Ve a la boda</th>
                 <th>Cosplay escollit</th>
               </tr>

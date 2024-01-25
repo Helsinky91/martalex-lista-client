@@ -383,10 +383,15 @@ h1, h2, h3, h4, h5 {
   flex-grow: 1;
 }
 
+.total-users h5 {
+  font-family: 'Silkscreen', sans-serif;
+}
+
 .total-users p {
   font-size: xx-large;
   color: white;
   font-family: 'Roboto Mono', monospace;
+  /* font-family: 'Silkscreen', sans-serif; */
 
 }
 .data-tables {
@@ -545,12 +550,7 @@ th {
 }
 
 .countdown-container {
-  /* text-align: center;
-  margin: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 2px solid #2196F3;
-  padding: 1.5%; */
+
   font-family: 'Silkscreen', sans-serif;
   text-align: center;
   margin: 50px;
@@ -591,40 +591,6 @@ th {
 }
 
 
-
-/* .countdown-cosplay-container {
-  text-align: center;
-  margin: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 2px solid #1a1a1a; 
-  padding: 1.5%;
-  background-color: #292929; 
-  border-radius: 10px;
-}
-
-.countdown-cosplay-clock {
-  display: flex;
-  justify-content: space-around;
-  max-width: 400px;
-  margin: auto;
-}
-
-.countdown-cosplay-segment {
-  text-align: center;
-}
-
-.countdown-cosplay-segment span {
-  font-size: 2em;
-  font-weight: bold;
-  color: #F2CD36; 
-}
-
-.countdown-cosplay-segment p {
-  font-size: 1em;
-  color: #b3b3b3; 
-  margin: 5px 0;
-} */
 
 .countdown-cosplay-container {
   text-align: center;

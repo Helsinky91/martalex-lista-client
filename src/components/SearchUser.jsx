@@ -13,7 +13,7 @@ function SearchUser(props) {
 
   return (
     <div>
-        <input value={searchItem} type="text" onChange={handleChange} placeholder="Busca un invitado"/>
+        <input value={searchItem} type="text" onChange={handleChange} placeholder="Busca un convidat"/>
     </div>
   )
 }
