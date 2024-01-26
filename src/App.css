@@ -62,10 +62,6 @@ h1, h2, h3, h4, h5 {
   margin-top: 1%;
   margin-bottom: 1%;
 }
-/* .btn-green a {
-  color: white;
-  -webkit-text-stroke: 0.3px black; 
-} */
 
 .btn-blue {
   background-color: #137AA5;
@@ -200,14 +196,26 @@ h1, h2, h3, h4, h5 {
   background-color: #F2CD36;
   color: black
 }
-/* .btn-yellow > a {
-  color: white;
-} */
+
 
 .btn-yellow:hover {
   background-color: #c9a92b;
   color: black
 }
+
+.btn-yellow-cosplay {
+  background-color: #F2CD36;
+  border: 3px solid black;
+  color: black;
+  margin-bottom: 8px;
+}
+
+
+.btn-yellow-cosplay:hover {
+  background-color: #c9a92b;
+  color: black
+}
+
 .auth-page {
   margin-top: 2%;
   padding-top: 2px;
@@ -521,22 +529,38 @@ th {
   -webkit-text-stroke: 0.3px black; 
 }
 
-.choosed-cosplay h2   {
-  padding-top: 35px;
-  
-  color:#106386;
-  /* color: white; */
-  -webkit-text-stroke: 0.3px white; 
+.choosed-cosplay{
+ padding-top: 5px;
+  margin-top: 5px;
+  min-height: 100vh;
 }
 
-.choosed-cosplay{
-  background-image: url("../src/assets/oh-no.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  padding-top: 10px;
-  margin-top: 25px;
+.choosed-cosplay h2, .choosed-cosplay h5 {
+  background-color: #1379a5d7;
+  margin-left: 20%;
+  margin-right: 20%;
+  border: 3px solid black;
+  padding-bottom: 2px;
+}
 
-  min-height: 100vh;
+.choosed-cosplay img {
+  height: 500px;
+}
+
+@keyframes colorChange {
+  0% {
+    color: red;
+  }
+  50% {
+    color: #FFD700;
+  }
+  100% {
+    color: red;
+  }
+}
+
+.choosed-cosplay h2 {
+  animation: colorChange 1s infinite; /* 1s duration, infinite loop */
 }
 
 .not-found-page{
@@ -734,5 +758,11 @@ th {
   .data-tables {
     flex-direction: column; 
   }
- 
+ .choosed-cosplay img {
+  height: 350px;
+}
+.choosed-cosplay h2, .choosed-cosplay h5 {
+  margin-left: 5%;
+  margin-right: 5%;
+}
 }
