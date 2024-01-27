@@ -20,6 +20,7 @@ function ProfileList() {
   const [hasChoosenCosplay, setHasChoosenCosplay] = useState(0);
   const [hasntChoosenCosplay, setHasntChoosenCosplay] = useState(0);
   const [allergyFilter, setAllergyFilter] = useState(false);
+  const [combinedCount, setCombinedCount] = useState(0);
 
   useEffect(() => {
     // Fetch the profile list when the component mounts
@@ -49,6 +50,12 @@ function ProfileList() {
 
         const hasNotCosplay = response.data.filter(user => user.cosplayId === null || user.cosplayId === undefined).length;
         setHasntChoosenCosplay(hasNotCosplay);
+
+        // Combining the conditions for "Sí" attendance and hasn't chosen a cosplay
+        const combinedCount = response.data.filter(user => user.attendance[0] === "Sí" && (user.cosplayId === null || user.cosplayId === undefined)).length;
+        console.log("Combined Count:", combinedCount);
+        setCombinedCount(combinedCount);
+
 
       } catch (error) {
         console.error('Error fetching profile list:', error);
@@ -159,7 +166,9 @@ const filterByCosplay = (cosplayFilter) => {
         <div className="total-users">
           <h5>Total Registrats:</h5>
           <p>{totalUsersCounter}</p>
-          <button className="btn btn-yellow" onClick={resetFilter}>Mostra tota la llista</button>
+          <button className="btn btn-yellow" onClick={resetFilter}>Mostra tota la llista</button> 
+          <br /> <br />
+          <span>(Venen pero no tenen cosplay asignat: {combinedCount})</span>
         </div>
 
         <div className="data-tables">

@@ -149,7 +149,9 @@ function CosplayDetails() {
                             <button className="choose-btn btn" onClick={unChooseCosplay}>Liberar Cosplay</button>
                         ) : (
                             profile.cosplayId ? (
-                                <h5>⚠ Ya tienes un cosplay elegido ⚠</h5>
+                                <h5>⚠ Ya tienes un cosplay elegido ⚠ <br/>
+                                Si quieres elegir otro, puedes liberar el cosplay que tienes asignado en tu perfil!</h5> 
+                                
                             ) : (
                                 !details.choosedBy ? (
                                     <button className="choose-btn btn" onClick={chooseCosplay}>Elegir Cosplay</button>
