@@ -40,7 +40,7 @@ function CosplayDetails() {
     }
 
 
- //   to be able to choose a cosplay
+    //   to be able to choose a cosplay
     // const chooseCosplay = async () => {
     //     try {
     //        // Check if the cosplay has already been chosen
@@ -59,7 +59,7 @@ function CosplayDetails() {
     const chooseCosplay = async () => {
         try {
             const response = await chooseCosplayService(cosplayId);
-    
+
             if (details.choosedBy) {
                 // The cosplay has already been chosen
                 alert("Upss, you were too late. This cosplay has already been chosen.");
@@ -71,11 +71,11 @@ function CosplayDetails() {
         } catch (err) {
             console.error("Error choosing cosplay:", err);
             // Display a custom error message
-        // alert("An error occurred while choosing the cosplay. Please try again.");
+            // alert("An error occurred while choosing the cosplay. Please try again.");
             navigate("/choosed-cosplay");
         }
     }
-    
+
 
     //to be able to unchoose a cosplay
     const unChooseCosplay = async () => {
@@ -102,7 +102,7 @@ function CosplayDetails() {
     if (error) {
         return <Error status={error} />;
     }
-    
+
     return (
         <div className="cosplay-details-page">
             <h1 className="details-name">{details.name}</h1>
@@ -140,18 +140,24 @@ function CosplayDetails() {
                     </section>
                     <br />
 
-
-                    {/* {profile.attendance[0] === 'No' || profile.attendance[0] === 'Quizás' ? null : (
-                        !details.choosedBy ? (
-                            <button className="choose-btn btn" onClick={chooseCosplay}>Elegir Cosplay</button>
+                    
+                    {/* {profile.attendance[0] === 'No' || profile.attendance[0] === 'Quizás' ? (
+                        <h5 className="red">⚠ Solo puede escoger cosplay quién asiste a la boda. <br />
+                            Puedes cambiar tu asistencia editando tu perfil ⚠</h5>
+                    ) : (
+                        profile.cosplayId === details.cosplayId || details.choosedBy && details.choosedBy._id === profile._id ? (
+                            <button className="choose-btn btn" onClick={unChooseCosplay}>Liberar Cosplay</button>
                         ) : (
-                            details.choosedBy._id === profile._id && (
-                                <button className="choose-btn btn" onClick={unChooseCosplay}>Liberar Cosplay</button>
+                            profile.cosplayId ? (
+                                <h5>⚠ Ya tienes un cosplay elegido ⚠</h5>
+                            ) : (
+                                !details.choosedBy ? (
+                                    <button className="choose-btn btn" onClick={chooseCosplay}>Elegir Cosplay</button>
+                                ) : <h4 className="red">¡Este cosplay ya ha sido elegido!</h4>
                             )
                         )
                     )} */}
-                    
-                   
+
 
 
                 </div>
