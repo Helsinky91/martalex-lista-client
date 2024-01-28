@@ -85,9 +85,9 @@ function MyProfile() {
               <button className="btn-yellow btn">Edita tu perfil</button>
             </Link>
           </div>
-          <hr className="hr-profile" />
+          {/* <hr className="hr-profile" /> */}
 
-          <div><CountdownTimerCosplay /></div>
+          {/* <div><CountdownTimerCosplay /></div> */}
 
 
           {myProfile.cosplayId === undefined || myProfile.cosplayId === null || myProfile.cosplayId.length <= 0 ? (
