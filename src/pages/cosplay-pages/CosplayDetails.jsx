@@ -141,7 +141,7 @@ function CosplayDetails() {
                     <br />
 
                     
-                    {/* {profile.attendance[0] === 'No' || profile.attendance[0] === 'Quizás' ? (
+                    {profile.attendance[0] === 'No' || profile.attendance[0] === 'Quizás' ? (
                         <h5 className="red">⚠ Solo puede escoger cosplay quién asiste a la boda. <br />
                             Puedes cambiar tu asistencia editando tu perfil ⚠</h5>
                     ) : (
@@ -158,7 +158,7 @@ function CosplayDetails() {
                                 ) : <h4 className="red">¡Este cosplay ya ha sido elegido!</h4>
                             )
                         )
-                    )} */}
+                    )}
 
 
 
