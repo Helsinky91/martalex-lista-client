@@ -114,8 +114,20 @@ function MyProfile() {
                 {/* <br />
                  <br />
                 <br /> */}
+                
               </div>
             </div>
+          )}
+          {myProfile._id === "6591cc59633abf2a6f10c11f" ? (
+            <div className="cosplay-profile-info">
+              <Link to={`/cosplay/658d5faeb3be3973734c76e4/details`}>
+              <h2>Ernesto de la Cruz</h2>
+              <img src="https://i.pinimg.com/564x/93/2d/a3/932da31f9b2fc39f90621ef7b39442d1.jpg" height={300} alt="Ernesto de la Cruz" />
+              <p>Clica en la foto para obtener toda la info del cosplay</p>
+            </Link>
+            </div>
+          ): (
+            <p></p>
           )}
 
 <hr className="hr-profile" />
