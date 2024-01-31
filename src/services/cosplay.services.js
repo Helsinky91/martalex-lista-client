@@ -5,6 +5,10 @@ const getCosplayListServices = () => {
     //this equals to http://localhost:5005/api + /cosplay/cosplay-list
 }
 
+const getCosplayListChoosedServices = () => {
+    return service.get("/cosplay/cosplay-list-choosed");
+}
+
 const getCosplayDetailsService = (id) => {
     return service.get(`/cosplay/${id}/details`);
 }
@@ -22,5 +26,6 @@ export {
     getCosplayListServices,
     getCosplayDetailsService,
     chooseCosplayService,
-    unChooseCosplayService
+    unChooseCosplayService,
+    getCosplayListChoosedServices
 };

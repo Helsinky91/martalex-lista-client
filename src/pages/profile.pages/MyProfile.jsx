@@ -59,9 +59,18 @@ function MyProfile() {
     <div className='profile-page'>
 
       {myProfile.role === "admin" || myProfile.role === "limited" ? (
-        <Link to="/profile/list">
-          <button className='btn-blue btn' >Lista invitados </button></Link>
+        <div>
+          <Link to="/profile/list">
+            <button className='btn-blue btn' >Llista convidats </button></Link>
+            <br />
+            <br />
+          <Link to="/cosplay/cosplay-list-choosed">
+            <button className='btn-red btn' >Cosplay escollits</button></Link>
+        </div>
       ) : (<p></p>)}
+
+      
+      
 
       <div><CountdownTimer /></div>
 
@@ -118,6 +127,8 @@ function MyProfile() {
               </div>
             </div>
           )}
+          
+          {/* CONFIG SOLO PARA JOSÉ BAGÜÉS Y SU 2NDO COSPLAY */}
           {myProfile._id === "6591cc59633abf2a6f10c11f" ? (
             <div className="cosplay-profile-info">
               <Link to={`/cosplay/658d5faeb3be3973734c76e4/details`}>
