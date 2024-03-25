@@ -19,6 +19,10 @@ function ProfileList() {
 
   const [hasChoosenCosplay, setHasChoosenCosplay] = useState(0);
   const [hasntChoosenCosplay, setHasntChoosenCosplay] = useState(0);
+
+  const [lunchSiCounter, setLunchSiCounter] = useState(0);
+  const [lunchNoCounter, setLunchNoCounter] = useState(0);
+
   const [allergyFilter, setAllergyFilter] = useState(false);
   const [combinedCount, setCombinedCount] = useState(0);
 
@@ -50,6 +54,12 @@ function ProfileList() {
 
         const hasNotCosplay = response.data.filter(user => user.cosplayId === null || user.cosplayId === undefined).length;
         setHasntChoosenCosplay(hasNotCosplay);
+
+        const siLunchCount = response.data.filter(user => user.lunch[0] === "Sí").length;
+        setLunchSiCounter(siLunchCount);
+  
+        const noLunchCount = response.data.filter(user => user.lunch[0] === "No").length;
+        setLunchNoCounter(noLunchCount);
 
         // Combining the conditions for "Sí" attendance and hasn't chosen a cosplay
         const combinedCount = response.data.filter(user => user.attendance[0] === "Sí" && (user.cosplayId === null || user.cosplayId === undefined)).length;
@@ -96,6 +106,12 @@ function ProfileList() {
     const filteredList = profileListToShow.filter(user => user.attendance[0] === attendanceType);
     setProfileListToShow(filteredList);
   };
+
+  // Function to filter profiles based on lunch choice
+const filterByLunch = (lunchType) => {
+  const filteredList = profileListToShow.filter(user => user.lunch[0] === lunchType);
+  setProfileListToShow(filteredList);
+};
 
 // Function to filter profiles based on cosplay
 const filterByCosplay = (cosplayFilter) => {
@@ -220,6 +236,24 @@ const filterByCosplay = (cosplayFilter) => {
               
             </tbody>
           </table>
+          <table className="lunch-table">
+  <thead>
+    <tr>
+      <th colSpan="2">Comida domingo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><button onClick={() => filterByLunch("Sí")}>Sí</button></td>
+      <td>{lunchSiCounter}</td>
+    </tr>
+    <tr>
+      <td><button onClick={() => filterByLunch("No")}>No</button></td>
+      <td>{lunchNoCounter}</td>
+    </tr>
+  </tbody>
+</table>
+
         </div>
       </div>
 
@@ -281,6 +315,7 @@ const filterByCosplay = (cosplayFilter) => {
                 <th><button className="btn" onClick={() => filterByAllergies()}>Alèrgies</button></th>
                 <th>Ve a la boda</th>
                 <th>Cosplay escollit</th>
+                <th>Dinar diumg</th>
               </tr>
             </thead>
             <tbody>
@@ -314,7 +349,15 @@ const filterByCosplay = (cosplayFilter) => {
                       <p className="red">No</p>
                     )}
                   </td>
-
+                  <td>
+                    {user.lunch[0] === "No" ? (
+                      <p className="red">{user.lunch}</p>
+                    ) : user.lunch[0] === "Quizás" ? (
+                      <p className="yellow">{user.lunch}</p>
+                    ) : (
+                      <p>{user.lunch}</p>
+                    )}
+                  </td>
                 </tr>
 
               ))}

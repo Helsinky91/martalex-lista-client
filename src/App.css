@@ -5,6 +5,8 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #1A2040;
   min-height: 100vh;
+  /* margin-left: 2px;
+  margin-right: 2px; */
 }
 
 .App {
@@ -682,13 +684,21 @@ th {
   -webkit-text-stroke: 0.5px black; 
 }
 
+.pers-inf-segment {
+  background-color:#1062866e;
+  padding: 2px;
+  border-radius: 5px;
+}
+
 .pers-inf-segment p{
   /* font-size: 1em; */
   margin: 5px 0;
+  
 }
 
 .pers-inf-segment span{
   font-size: larger;
+  
 }
 
 @media (max-width: 768px) {

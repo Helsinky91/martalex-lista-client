@@ -31,7 +31,7 @@ function MyProfile() {
       //call my profile info 
       const response = await getMyProfileService()
       setMyProfile(response.data);
-      
+
       setIsFetching(false)
 
     } catch (error) {
@@ -62,22 +62,22 @@ function MyProfile() {
         <div>
           <Link to="/profile/list">
             <button className='btn-blue btn' >Llista convidats </button></Link>
-            <br />
-            <br />
+          <br />
+          <br />
           <Link to="/cosplay/cosplay-list-choosed">
             <button className='btn-red btn' >Cosplay escollits</button></Link>
         </div>
       ) : (<p></p>)}
 
-      
-      
+
+
 
       <div><CountdownTimer /></div>
 
       <div className="my-profile" >
         <div className="">
           <h1>Hola {myProfile.name}! </h1>
-          
+
           <div className="pers-inf-profile">
             <div className="pers-inf-segment">
               <span>Alergias:</span>
@@ -86,6 +86,10 @@ function MyProfile() {
             <div className="pers-inf-segment">
               <span>Vienes a la boda?</span>
               <p>{myProfile.attendance}</p>
+            </div>
+            <div className="pers-inf-segment">
+              <span>Comida domingo:</span>
+              <p>{myProfile.lunch}</p>
             </div>
           </div>
           {myProfile.attendance[0] === "No" || myProfile.attendance[0] === "Quizás" ? <p className='red'>(Solo podrás escoger cosplay si vienes a la boda!)</p> : null}
@@ -123,41 +127,41 @@ function MyProfile() {
                 {/* <br />
                  <br />
                 <br /> */}
-                
+
               </div>
             </div>
           )}
-          
+
           {/* CONFIG SOLO PARA JOSÉ BAGÜÉS Y SU 2NDO COSPLAY */}
           {myProfile._id === "6591cc59633abf2a6f10c11f" ? (
             <div className="cosplay-profile-info">
               <Link to={`/cosplay/658d5faeb3be3973734c76e4/details`}>
-              <h2>Ernesto de la Cruz</h2>
-              <img src="https://i.pinimg.com/564x/93/2d/a3/932da31f9b2fc39f90621ef7b39442d1.jpg" height={300} alt="Ernesto de la Cruz" />
-              <p>Clica en la foto para obtener toda la info del cosplay</p>
-            </Link>
+                <h2>Ernesto de la Cruz</h2>
+                <img src="https://i.pinimg.com/564x/93/2d/a3/932da31f9b2fc39f90621ef7b39442d1.jpg" height={300} alt="Ernesto de la Cruz" />
+                <p>Clica en la foto para obtener toda la info del cosplay</p>
+              </Link>
             </div>
-          ): (
+          ) : (
             <p></p>
           )}
 
 
-{/* CONFIG SOLO PARA AFRI Y SU 2NDO COSPLAY */}
-{myProfile._id === "6584a6f30acecb6e3dbf23ed" ? (
+          {/* CONFIG SOLO PARA AFRI Y SU 2NDO COSPLAY */}
+          {myProfile._id === "6584a6f30acecb6e3dbf23ed" ? (
             <div className="cosplay-profile-info">
               <Link to={`/cosplay/658d5faeb3be3973734c76ed/details`}>
-              <h2>Misty</h2>
-              <img src="https://static.wikia.nocookie.net/espokemon/images/a/ac/Misty_%28anime_SL%29.png" height={300} alt="Misty" />
-              <p>Clica en la foto para obtener toda la info del cosplay</p>
-            </Link>
+                <h2>Misty</h2>
+                <img src="https://static.wikia.nocookie.net/espokemon/images/a/ac/Misty_%28anime_SL%29.png" height={300} alt="Misty" />
+                <p>Clica en la foto para obtener toda la info del cosplay</p>
+              </Link>
             </div>
-          ): (
+          ) : (
             <p></p>
           )}
 
 
-<hr className="hr-profile" />
-              <h5 className="link">Subscríbete a nuestro <br /><button className="btn btn-green"><a href="https://whatsapp.com/channel/0029VaJH6Q635fLwxdDgfQ1l" >canal de Whatsapp</a></button> <br /> para recibir novedades y avisos.</h5>
+          <hr className="hr-profile" />
+          <h5 className="link">Subscríbete a nuestro <br /><button className="btn btn-green"><a href="https://whatsapp.com/channel/0029VaJH6Q635fLwxdDgfQ1l" >canal de Whatsapp</a></button> <br /> para recibir novedades y avisos.</h5>
           {/* <hr className="hr-profile" /> */}
           <br />
           <br />

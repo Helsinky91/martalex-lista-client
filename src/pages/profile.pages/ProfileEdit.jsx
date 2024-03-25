@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from "../../context/auth.context";
 
-import { getProfileService, editProfileService, attendanceProfileService, updatePasswordService } from '../../services/profile.services';
+import { getProfileService, editProfileService, attendanceProfileService, updatePasswordService, lunchProfileService } from '../../services/profile.services';
 import PacmanLoader from "react-spinners/PacmanLoader";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
@@ -19,6 +19,8 @@ function ProfileEdit() {
     const [emailInput, setEmailInput] = useState();
     const [attendanceInput, setAttendanceInput] = useState();
     const [allAttendance, setAllAttendance] = useState();
+    const [lunchInput, setLunchInput] = useState();
+    const [allLunch, setAllLunch] = useState();
     const [alergiesInput, setAlergiesInput] = useState();
     const [errorMessage, setErrorMessage] = useState("");
 
@@ -32,6 +34,10 @@ function ProfileEdit() {
     const handleAttendanceChange = (event) => {
         let value = Array.from(event.target.selectedOptions, option => option.value)
         setAttendanceInput(value)
+    }
+    const handleLunchChange = (event) => {
+        let value = Array.from(event.target.selectedOptions, option => option.value)
+        setLunchInput(value)
     }
     const handleEmailChange = (event) => setEmailInput(event.target.value)
     const handleAlergiesChange = (event) => setAlergiesInput(event.target.value)
@@ -50,6 +56,7 @@ function ProfileEdit() {
             //to set the actual value on the fields
             setNameInput(response.data.name)
             setAttendanceInput(response.data.attendance)
+            setLunchInput(response.data.lunch)
             setAlergiesInput(response.data.alergies)
             setEmailInput(response.data.email)
 
@@ -57,6 +64,11 @@ function ProfileEdit() {
             const attendanceData = await attendanceProfileService()
             setIsFetching(false)
             setAllAttendance(attendanceData.data)
+            
+            const lunchData = await lunchProfileService()
+            setIsFetching(false)
+            setAllLunch(lunchData.data)
+
 
         } catch (err) {
             navigate("/error")
@@ -71,6 +83,7 @@ function ProfileEdit() {
             const updatedProfile = {
                 name: nameInput,
                 attendance: attendanceInput,
+                lunch: lunchInput,
                 email: emailInput,
                 alergies: alergiesInput,
             }
@@ -135,6 +148,14 @@ function ProfileEdit() {
                         <br /> alimentáreas:</label>
                     <br />
                     <input type="text" name="alergies" value={alergiesInput} onChange={handleAlergiesChange} />
+                    <br />
+                    <br />
+                    <label>Comida domingo: </label>
+                    <select name="lunch" value={lunchInput} onChange={handleLunchChange}>
+                        <option value="">Selecciona</option>
+                        <option value="Sí">Sí</option>
+                        <option value="No">No</option>
+                    </select>
                     <br />
                     <br />
                     <button className="btn-yellow btn" type="submit">Guarda los cambios</button>
