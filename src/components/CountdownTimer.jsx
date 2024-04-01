@@ -39,7 +39,7 @@ const CountdownTimer = () => {
     //   <h5>{`Quedan ${remainingMonths} meses, ${remainingDays} días, ${remainingHours} horas y ${remainingMinutes} minutos.`}</h5>
     // </div>
 <div className="countdown-container">
-      <h3>Días para la boda</h3>
+      <h3>Días para el fiestón</h3>
       <div className="countdown-clock">
         <div className="countdown-segment">
           <span>{String(remainingMonths).padStart(2, '0')}</span>
