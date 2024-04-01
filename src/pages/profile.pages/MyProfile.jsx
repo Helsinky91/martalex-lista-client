@@ -102,6 +102,9 @@ function MyProfile() {
 
           {/* <div><CountdownTimerCosplay /></div> */}
 
+          {/* <hr className="hr-profile" /> */}
+          <button className="btn btn-red"><a href="https://martalex-ubicacion.netlify.app/" >¿Dónde es el fiestón?</a></button> 
+          {/* <br /> */}
 
           {myProfile.cosplayId === undefined || myProfile.cosplayId === null || myProfile.cosplayId.length <= 0 ? (
             <div>
@@ -158,7 +161,7 @@ function MyProfile() {
           ) : (
             <p></p>
           )}
-
+         
 
           <hr className="hr-profile" />
           <h5 className="link">Subscríbete a nuestro <br /><button className="btn btn-green"><a href="https://whatsapp.com/channel/0029VaJH6Q635fLwxdDgfQ1l" >canal de Whatsapp</a></button> <br /> para recibir novedades y avisos.</h5>
