@@ -136,7 +136,7 @@ function MyProfile() {
           )}
 
           {/* CONFIG SOLO PARA JOSÉ BAGÜÉS Y SU 2NDO COSPLAY */}
-          {myProfile._id === "6591cc59633abf2a6f10c11f" ? (
+          {/* {myProfile._id === "6591cc59633abf2a6f10c11f" ? (
             <div className="cosplay-profile-info">
               <Link to={`/cosplay/658d5faeb3be3973734c76e4/details`}>
                 <h2>Ernesto de la Cruz</h2>
@@ -146,7 +146,7 @@ function MyProfile() {
             </div>
           ) : (
             <p></p>
-          )}
+          )} */}
 
 
           {/* CONFIG SOLO PARA AFRI Y SU 2NDO COSPLAY */}
