@@ -152,9 +152,9 @@ function MyProfile() {
           {/* CONFIG SOLO PARA AFRI Y SU 2NDO COSPLAY */}
           {myProfile._id === "6584a6f30acecb6e3dbf23ed" ? (
             <div className="cosplay-profile-info">
-              <Link to={`/cosplay/658d5faeb3be3973734c76ed/details`}>
-                <h2>Misty</h2>
-                <img src="https://static.wikia.nocookie.net/espokemon/images/a/ac/Misty_%28anime_SL%29.png" height={300} alt="Misty" />
+              <Link to={`/cosplay/658d5faeb3be3973734c7713/details`}>
+                <h2>Pétalo</h2>
+                <img src="https://i.pinimg.com/564x/cc/01/67/cc01670c4bf709fd0744d4a47f4c3996.jpg" height={300} alt="Pétalo" />
                 <p>Clica en la foto para obtener toda la info del cosplay</p>
               </Link>
             </div>
