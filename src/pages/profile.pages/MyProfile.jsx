@@ -117,7 +117,6 @@ function MyProfile() {
             </div>
           ) : (
             <div>
-              {/* <h5 className="link">Subscríbete a nuestro <br /> <button className="btn btn-green"><a href="https://whatsapp.com/channel/0029VaJH6Q635fLwxdDgfQ1l" >canal de Whatsapp</a></button> <br /> para recibir novedades y avisos.</h5> */}
               <br />
 
               <div className="cosplay-profile-info">

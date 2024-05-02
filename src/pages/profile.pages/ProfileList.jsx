@@ -96,10 +96,10 @@ function ProfileList() {
   };
 
 
-  const sendEmailToAll = (userList) => {
-    const emailAddresses = userList.map(user => user.email).join(',');
-    window.location.href = `mailto:${emailAddresses}`;
-  };
+  // const sendEmailToAll = (userList) => {
+  //   const emailAddresses = userList.map(user => user.email).join(',');
+  //   window.location.href = `mailto:${emailAddresses}`;
+  // };
 
    // Function to filter profiles based on attendance
    const filterByAttendance = (attendanceType) => {
@@ -140,7 +140,19 @@ const filterByCosplay = (cosplayFilter) => {
         user.alergies !== "Ninguna" &&
         user.alergies !== "Ninguna " &&
         user.alergies !== "NO" &&
-        user.alergies !== "Cap"
+        user.alergies !== "Cap" &&
+        user.alergies !== "Nada" &&
+        user.alergies !== " " &&
+        user.alergies !== "Al trabajo" &&
+        user.alergies !== "Carlos Goñi" &&
+        user.alergies !== "A la humanidad" &&
+        user.alergies !== "Fachas" &&
+        user.alergies !== "Cerveza sin alcohol" &&
+        user.alergies !== "A la humanidad" &&
+        user.alergies !== "Alergia a la vida " &&
+        user.alergies !== "Alimentarias no ..." 
+
+        
       );
     });
   
@@ -152,6 +164,15 @@ const filterByCosplay = (cosplayFilter) => {
   //   setProfileListToShow(profileList);
   //   setAllergyFilter(false); // Set the allergy filter as inactive
   // };
+
+
+// Function to render edit link/button based on user role
+const renderEditLink = (userId) => {
+  if (myProfile.role === "limited") {
+    return <Link to={`/profile/${userId}/edit`}>Edit</Link>;
+  }
+  return null;
+};
 
 
   //if content is not loading, show spinner
@@ -196,17 +217,17 @@ const filterByCosplay = (cosplayFilter) => {
             </thead>
             <tbody>
               <tr>
-                {/* <td>Sí</td> */}
+               
                 <td><button onClick={() => filterByAttendance("Sí")}>Sí</button></td>
                 <td>{attendanceSiCounter}</td>
               </tr>
               <tr>
-                {/* <td>Quizás</td> */}
+                
                 <td><button onClick={() => filterByAttendance("Quizás")}>Quizás</button></td>
                 <td>{attendanceQuizasCounter}</td>
               </tr>
               <tr>
-                {/* <td>No</td> */}
+                
                 <td><button onClick={() => filterByAttendance("No")}>No</button></td>
                 <td>{attendanceNoCounter}</td>
               </tr>
@@ -224,12 +245,12 @@ const filterByCosplay = (cosplayFilter) => {
             </thead>
             <tbody>
               <tr>
-                {/* <td>Sí</td> */}
+                
                 <td><button onClick={() => filterByCosplay("Sí")}>Sí</button></td>
                 <td>{hasChoosenCosplay}</td>
               </tr>
               <tr>
-                {/* <td>No</td> */}
+                
                 <td><button onClick={() => filterByCosplay("No")}>No</button></td>
                 <td>{hasntChoosenCosplay}</td>
               </tr>
@@ -258,6 +279,7 @@ const filterByCosplay = (cosplayFilter) => {
       </div>
 
       {/* <button onClick={resetAllergyFilter}>Clear Filter</button> */}
+      
 
       <br />
       {myProfile.role === "admin" && (
@@ -316,6 +338,7 @@ const filterByCosplay = (cosplayFilter) => {
                 <th>Ve a la boda</th>
                 <th>Cosplay escollit</th>
                 <th>Dinar diumg</th>
+                <th>Editar amic</th>
               </tr>
             </thead>
             <tbody>
@@ -358,6 +381,7 @@ const filterByCosplay = (cosplayFilter) => {
                       <p>{user.lunch}</p>
                     )}
                   </td>
+                  <td>{renderEditLink(user._id)}</td> {/* Render edit link/button */}
                 </tr>
 
               ))}
