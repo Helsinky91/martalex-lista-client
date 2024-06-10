@@ -6,6 +6,8 @@ import { getMyProfileService } from '../../services/profile.services';
 // import { getCosplayDetailsService } from '../../services/cosplay.services';
 import Error from '../Error';
 import CountdownTimer from '../../components/CountdownTimer';
+import CountdownTimerWithHour from '../../components/CountdownTimerWithHour';
+
 import CountdownTimerCosplay from '../../components/CountdownTimerCosplay';
 
 
@@ -72,7 +74,9 @@ function MyProfile() {
 
 
 
-      <div><CountdownTimer /></div>
+      {/* <div><CountdownTimer /></div> */}
+      <div><CountdownTimerWithHour /></div>
+
 
       <div className="my-profile" >
         <div className="">
